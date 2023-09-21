@@ -1,0 +1,3 @@
+/Volumes/ExtremeSSD/Bitskin-UI/src/_deps/zlib-subbuild/CMakeFiles/zlib-populate.dir
+/Volumes/ExtremeSSD/Bitskin-UI/src/_deps/zlib-subbuild/CMakeFiles/edit_cache.dir
+/Volumes/ExtremeSSD/Bitskin-UI/src/_deps/zlib-subbuild/CMakeFiles/rebuild_cache.dir
