@@ -3,10 +3,14 @@
 
 class CLI {
 public:
-  /*
-   * Function: showCLIGreetings()
-   * Description: Activated when the program is activated. Will display a
-   * welcome and warning message
-   */
+
+/*╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
+  ┃                                                                              ┃
+  ┃   Function: showCLIGreetings() Description: Activated when the program is    ┃
+  ┃            activated. Will display a welcome and warning message             ┃
+  ┃                                                                              ┃
+  ╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯
+*/
+
   void showCLIGreetings();
 };

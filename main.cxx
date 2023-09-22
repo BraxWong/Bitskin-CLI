@@ -8,6 +8,7 @@ int main() {
   CLI *cli = new CLI();
   cli->showCLIGreetings();
   Profile* profile = new Profile();
-  profile->getCurrentSession();
+  UserCredentials* user = profile->userLogin();
+  profile->getCurrentSession(user);
   return 0;
 }
