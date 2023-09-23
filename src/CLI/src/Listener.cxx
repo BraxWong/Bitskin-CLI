@@ -30,6 +30,5 @@ void Listener::listenCommand()
     {
       this->profile->getCurrentSession();
     }
-    sleep(2);
   }
 }
