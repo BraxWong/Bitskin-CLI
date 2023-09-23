@@ -36,7 +36,7 @@ cpr::Response Profile::getAccountBalance()
                   ╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯
 */
 
-void Profile::userLogin()
+UserCredentials* Profile::userLogin()
 {
   UserCredentials* user = new UserCredentials();
   std::cout << "Please insert your steam username:\n";
@@ -50,4 +50,5 @@ void Profile::userLogin()
   std::cin >> input;
   user->setAPIKey(input);
   this->user = user;
+  return user;
 }
