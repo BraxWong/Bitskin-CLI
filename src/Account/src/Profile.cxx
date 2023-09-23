@@ -10,15 +10,24 @@
   ╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯
 */
 
-cpr::Response Profile::getCurrentSession(UserCredentials* user)
+cpr::Response Profile::getCurrentSession()
 {
   cpr::Response session = cpr::Get(cpr::Url{"https://api.bitskins.com/account/profile/me"}, 
-                                   cpr::Authentication{user->getUsername(), user->getPassword(), cpr::AuthMode::DIGEST},
-                                   cpr::Header{{"x-apikey", user->getAPIKey()}});
+                                   cpr::Authentication{this->user->getUsername(), this->user->getPassword(), cpr::AuthMode::DIGEST},
+                                   cpr::Header{{"x-apikey",this->user->getAPIKey()}});
   std::cout << session.url << "\n" << session.status_code << "\n" << session.text << "\n";
   return session;
 }
 
+cpr::Response Profile::getAccountBalance()
+{
+  cpr::Response balance = cpr::Post(cpr::Url{"https://api.bitskins.com/account/profile/balance"},
+                                    cpr::Authentication{this->user->getUsername(), this->user->getPassword(), cpr::AuthMode::DIGEST},
+                                    cpr::Header{{"x-apikey",this->user->getAPIKey()}},
+                                    cpr::Body{});
+  std::cout << balance.url << "\n" << balance.status_code << "\n" << balance.text << "\n";
+  return balance;
+}
 
 /*                ╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
                   ┃                                            ┃
@@ -40,5 +49,6 @@ UserCredentials* Profile::userLogin()
   std::cout << "Please insert your Bitskins API key:\n";
   std::cin >> input;
   user->setAPIKey(input);
+  this->user = user;
   return user;
 }

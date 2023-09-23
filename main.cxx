@@ -9,6 +9,10 @@ int main() {
   cli->showCLIGreetings();
   Profile* profile = new Profile();
   UserCredentials* user = profile->userLogin();
-  profile->getCurrentSession(user);
+  profile->getCurrentSession();
+  profile->getAccountBalance();
+  delete cli;
+  delete profile;
+  delete user;
   return 0;
 }
