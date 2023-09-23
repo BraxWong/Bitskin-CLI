@@ -1,7 +1,7 @@
 #include <cstdlib>
 #include <stdlib.h>
 #include <string>
-
+#pragma once
 /*                   ╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
                      ┃                                      ┃
                      ┃ UserCredentials Class Documentations ┃

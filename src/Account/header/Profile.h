@@ -3,9 +3,11 @@
 #include <cstdlib>
 #include <stdlib.h>
 #include <string>
+#pragma once
 
 class Profile {
 public:
+  UserCredentials* user;
 
 /*╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
   ┃                                                                              ┃
@@ -17,7 +19,19 @@ public:
   ╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯
 */
 
-  cpr::Response getCurrentSession(UserCredentials* user);
+  cpr::Response getCurrentSession();
+
+/*╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
+  ┃                                                                              ┃
+  ┃     Function: getAccountBalance() Description: This method will get the      ┃
+  ┃     account's balance. It will then print out the url, status code, and      ┃
+  ┃    text. At last it will return a cpr::Response object with the request's    ┃
+  ┃                  information. Return: cpr::Response object                   ┃
+  ┃                                                                              ┃
+  ╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯
+*/
+
+  cpr::Response getAccountBalance();
 
 /*╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
   ┃                                                                              ┃
@@ -29,5 +43,5 @@ public:
   ╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯
 */
 
-  UserCredentials* userLogin();
+  void userLogin();
 };

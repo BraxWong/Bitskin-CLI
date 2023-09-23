@@ -6,11 +6,18 @@ cmake_minimum_required(VERSION 3.13.4)
 set(CMAKE_CXX_STANDARD 17)
 project(Bitskin-UI VERSION 1.0)
 add_executable(${PROJECT_NAME} main.cxx)
-add_subdirectory(src)
-target_link_libraries(${PROJECT_NAME} PRIVATE src PRIVATE cpr::cpr)
-target_include_directories(${PROJECT_NAME} PUBLIC ${PROJECT_BINARY_DIR})
+find_package(nlohmann_json 3.2.0 REQUIRED)
+add_subdirectory(
+  src
+)
+target_link_libraries(${PROJECT_NAME} 
+  PRIVATE src 
+  PRIVATE cpr::cpr 
+  PRIVATE nlohmann_json::nlohmann_json
+)
 target_include_directories(${PROJECT_NAME}
   PUBLIC src
+  PUBLIC ${PROJECT_BINARY_DIR}
 )
 target_link_directories(${PROJECT_NAME}
   PRIVATE src
