@@ -3,6 +3,8 @@
 #include <cstdlib>
 #include <stdlib.h>
 #include <string>
+#include <nlohmann/json.hpp>
+#pragma once
 
 class Profile {
 public:

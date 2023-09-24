@@ -1,6 +1,7 @@
 #include "../header/Profile.h"
 #include <iostream>
 #include <string>
+using json = nlohmann::json;
 
 /*╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
   ┃                                                                              ┃
@@ -15,7 +16,7 @@ cpr::Response Profile::getCurrentSession()
   cpr::Response session = cpr::Get(cpr::Url{"https://api.bitskins.com/account/profile/me"}, 
                                    cpr::Authentication{this->user->getUsername(), this->user->getPassword(), cpr::AuthMode::DIGEST},
                                    cpr::Header{{"x-apikey",this->user->getAPIKey()}});
-  std::cout << session.url << "\n" << session.status_code << "\n" << session.text << "\n";
+  std::cout << session.url << "\n" << json::parse(session.text).dump(4) << "\n";
   return session;
 }
 
@@ -25,7 +26,7 @@ cpr::Response Profile::getAccountBalance()
                                     cpr::Authentication{this->user->getUsername(), this->user->getPassword(), cpr::AuthMode::DIGEST},
                                     cpr::Header{{"x-apikey",this->user->getAPIKey()}},
                                     cpr::Body{});
-  std::cout << balance.url << "\n" << balance.status_code << "\n" << balance.text << "\n";
+  std::cout << balance.url << "\n" << balance.status_code << "\n" << json::parse(balance.text).dump(4) << "\n";
   return balance;
 }
 
