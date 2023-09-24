@@ -3,12 +3,12 @@
 #include <cstdlib>
 #include <stdlib.h>
 #include <string>
+#include <nlohmann/json.hpp>
 #pragma once
 
 class Profile {
 public:
   UserCredentials* user;
-
 /*╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
   ┃                                                                              ┃
   ┃     Function: getCurrentSession() Description: This method will get the      ┃
@@ -29,9 +29,42 @@ public:
   ┃                  information. Return: cpr::Response object                   ┃
   ┃                                                                              ┃
   ╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯
+
+*/
+  cpr::Response getAccountBalance();
+
+/*╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
+  ┃                                                                              ┃
+  ┃    Function: blockAccount() Description: This method will ask the user to    ┃
+  ┃    provide a new steam trade link. Then it will automatically update the     ┃
+  ┃          trade link on Bitskins' side. Return: cpr::Response object          ┃
+  ┃                                                                              ┃
+  ╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯
 */
 
-  cpr::Response getAccountBalance();
+  cpr::Response updateTradeLink();
+
+/*╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
+  ┃                                                                              ┃
+  ┃      Function: blockAccount() Description: This method will ask for the      ┃
+  ┃    user's steam username, password, and Bitskins API Key. When request is    ┃
+  ┃         made, the user's Bitskins account will be disabled. Return:          ┃
+  ┃                            cpr::Response object.                             ┃
+  ┃                                                                              ┃
+  ╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯
+*/
+
+  cpr::Response blockAccount();
+
+/*╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
+  ┃                                                                              ┃
+  ┃      Function: updateAccount() Description: This method allows users to      ┃
+  ┃     update their bitskins account details. Return: cpr::Response object.     ┃
+  ┃                                                                              ┃
+  ╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯
+*/
+
+  cpr::Response updateAccount();
 
 /*╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
   ┃                                                                              ┃
@@ -43,5 +76,5 @@ public:
   ╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯
 */
 
-  void userLogin();
+  UserCredentials* userLogin();
 };

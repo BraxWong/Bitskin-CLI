@@ -16,10 +16,11 @@ add_subdirectory(
 )
 target_link_libraries(${PROJECT_NAME} 
   PRIVATE src 
-  PRIVATE cpr::cpr 
+  PRIVATE cpr::cpr
   PRIVATE nlohmann_json::nlohmann_json
   PUBLIC memplumber
 )
+target_include_directories(${PROJECT_NAME} PUBLIC ${PROJECT_BINARY_DIR})
 target_include_directories(${PROJECT_NAME}
   PUBLIC src
   PUBLIC ${PROJECT_BINARY_DIR}

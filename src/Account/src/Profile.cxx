@@ -1,6 +1,7 @@
 #include "../header/Profile.h"
 #include <iostream>
 #include <string>
+using json = nlohmann::json;
 
 /*╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
   ┃                                                                              ┃
@@ -15,7 +16,7 @@ cpr::Response Profile::getCurrentSession()
   cpr::Response session = cpr::Get(cpr::Url{"https://api.bitskins.com/account/profile/me"}, 
                                    cpr::Authentication{this->user->getUsername(), this->user->getPassword(), cpr::AuthMode::DIGEST},
                                    cpr::Header{{"x-apikey",this->user->getAPIKey()}});
-  std::cout << session.url << "\n" << session.status_code << "\n" << session.text << "\n";
+  std::cout << session.url << "\n" << json::parse(session.text).dump(4) << "\n";
   return session;
 }
 
@@ -25,8 +26,54 @@ cpr::Response Profile::getAccountBalance()
                                     cpr::Authentication{this->user->getUsername(), this->user->getPassword(), cpr::AuthMode::DIGEST},
                                     cpr::Header{{"x-apikey",this->user->getAPIKey()}},
                                     cpr::Body{});
-  std::cout << balance.url << "\n" << balance.status_code << "\n" << balance.text << "\n";
+  std::cout << balance.url << "\n" << balance.status_code << "\n" << json::parse(balance.text).dump(4) << "\n";
   return balance;
+}
+
+cpr::Response Profile::updateTradeLink()
+{
+  std::string Url;
+  std::cout << "Please enter your updated trade link.\n";
+  std::cin >> Url;
+  std::string json_body = R"(
+    {
+      "tradelink": "https://steamcommunity.com/tradeoffer/new/?partner=1111&token=AAAA"
+    }
+  )";
+  cpr::Response tradeLink = cpr::Post(cpr::Url{"https://api.bitskins.com/account/profile/update_tradelink"},
+                                      cpr::Authentication{this->user->getUsername(), this->user->getPassword(), cpr::AuthMode::DIGEST},
+                                      cpr::Header{{"x-apikey", this->user->getAPIKey()}},
+                                      cpr::Payload{{"tradelink", "https://steamcommunity.com/tradeoffer/new/?partner=1111&token=AAAA"}});
+  std::cout << tradeLink.url << "\n" << tradeLink.status_code << "\n" << json::parse(tradeLink.text).dump(4) << "\n";
+  return tradeLink;
+}
+
+cpr::Response Profile::updateAccount()
+{
+  cpr::Response account = cpr::Post(cpr::Url{"https://api.bitskins.com/account/profile/update_tradelink"},
+                                      cpr::Authentication{this->user->getUsername(), this->user->getPassword(), cpr::AuthMode::DIGEST},
+                                      cpr::Header{{"x-apikey", this->user->getAPIKey()}},
+                                      cpr::Payload{{"tradelink", "https://steamcommunity.com/tradeoffer/new/?partner=1111&token=AAAA"}});
+  std::cout << account.url << "\n" << account.status_code << "\n" << json::parse(account.text).dump(4) << "\n";
+  return account;
+
+}
+
+/*                 ╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
+                   ┃                                          ┃
+                   ┃ WARNING: Untested. Try at your own risk. ┃
+                   ┃                                          ┃
+                   ╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯
+*/
+
+cpr::Response Profile::blockAccount()
+{
+  cpr::Response block = cpr::Post(cpr::Url{"https://api.bitskins.com/account/profile/block"},
+                                      cpr::Authentication{this->user->getUsername(), this->user->getPassword(), cpr::AuthMode::DIGEST},
+                                      cpr::Header{{"x-apikey", this->user->getAPIKey()}},
+                                      cpr::Body{});
+  std::cout << block.url << "\n" << block.status_code << "\n" << json::parse(block.text).dump(4) << "\n";
+  return block;
 }
 
 /*                ╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
@@ -36,7 +83,7 @@ cpr::Response Profile::getAccountBalance()
                   ╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯
 */
 
-void Profile::userLogin()
+UserCredentials* Profile::userLogin()
 {
   UserCredentials* user = new UserCredentials();
   std::cout << "Please insert your steam username:\n";
@@ -50,4 +97,5 @@ void Profile::userLogin()
   std::cin >> input;
   user->setAPIKey(input);
   this->user = user;
+  return user;
 }

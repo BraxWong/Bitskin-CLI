@@ -6,4 +6,3 @@ void Help::showHelp()
 {
   std::cout << "Will be done in due time.\n";
 }
-
