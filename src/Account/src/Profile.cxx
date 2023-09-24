@@ -30,6 +30,52 @@ cpr::Response Profile::getAccountBalance()
   return balance;
 }
 
+cpr::Response Profile::updateTradeLink()
+{
+  std::string Url;
+  std::cout << "Please enter your updated trade link.\n";
+  std::cin >> Url;
+  std::string json_body = R"(
+    {
+      "tradelink": "https://steamcommunity.com/tradeoffer/new/?partner=1111&token=AAAA"
+    }
+  )";
+  cpr::Response tradeLink = cpr::Post(cpr::Url{"https://api.bitskins.com/account/profile/update_tradelink"},
+                                      cpr::Authentication{this->user->getUsername(), this->user->getPassword(), cpr::AuthMode::DIGEST},
+                                      cpr::Header{{"x-apikey", this->user->getAPIKey()}},
+                                      cpr::Payload{{"tradelink", "https://steamcommunity.com/tradeoffer/new/?partner=1111&token=AAAA"}});
+  std::cout << tradeLink.url << "\n" << tradeLink.status_code << "\n" << json::parse(tradeLink.text).dump(4) << "\n";
+  return tradeLink;
+}
+
+cpr::Response Profile::updateAccount()
+{
+  cpr::Response account = cpr::Post(cpr::Url{"https://api.bitskins.com/account/profile/update_tradelink"},
+                                      cpr::Authentication{this->user->getUsername(), this->user->getPassword(), cpr::AuthMode::DIGEST},
+                                      cpr::Header{{"x-apikey", this->user->getAPIKey()}},
+                                      cpr::Payload{{"tradelink", "https://steamcommunity.com/tradeoffer/new/?partner=1111&token=AAAA"}});
+  std::cout << account.url << "\n" << account.status_code << "\n" << json::parse(account.text).dump(4) << "\n";
+  return account;
+
+}
+
+/*                 ╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
+                   ┃                                          ┃
+                   ┃ WARNING: Untested. Try at your own risk. ┃
+                   ┃                                          ┃
+                   ╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯
+*/
+
+cpr::Response Profile::blockAccount()
+{
+  cpr::Response block = cpr::Post(cpr::Url{"https://api.bitskins.com/account/profile/block"},
+                                      cpr::Authentication{this->user->getUsername(), this->user->getPassword(), cpr::AuthMode::DIGEST},
+                                      cpr::Header{{"x-apikey", this->user->getAPIKey()}},
+                                      cpr::Body{});
+  std::cout << block.url << "\n" << block.status_code << "\n" << json::parse(block.text).dump(4) << "\n";
+  return block;
+}
+
 /*                ╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
                   ┃                                            ┃
                   ┃ TODO: Validate the input given by the user ┃

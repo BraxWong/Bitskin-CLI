@@ -30,5 +30,17 @@ void Listener::listenCommand()
     {
       this->profile->getCurrentSession();
     }
+    else if(input == "-tradelink")
+    {
+      this->profile->updateTradeLink();
+    }
+    else if(input == "-updateaccount")
+    {
+      this->profile->updateAccount();
+    }
+    else 
+    {
+      std::cout << "Command not recognized. Please try again.\n";
+    }
   }
 }
