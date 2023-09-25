@@ -35,15 +35,11 @@ cpr::Response Profile::updateTradeLink()
   std::string Url;
   std::cout << "Please enter your updated trade link.\n";
   std::cin >> Url;
-  std::string json_body = R"(
-    {
-      "tradelink": "https://steamcommunity.com/tradeoffer/new/?partner=1111&token=AAAA"
-    }
-  )";
+  json parsedUrl = {{"tradelink", Url}};
   cpr::Response tradeLink = cpr::Post(cpr::Url{"https://api.bitskins.com/account/profile/update_tradelink"},
                                       cpr::Authentication{this->user->getUsername(), this->user->getPassword(), cpr::AuthMode::DIGEST},
-                                      cpr::Header{{"x-apikey", this->user->getAPIKey()}},
-                                      cpr::Payload{{"tradelink", "https://steamcommunity.com/tradeoffer/new/?partner=1111&token=AAAA"}});
+                                      cpr::Header{{"Content-Type","application/json"},{"x-apikey", this->user->getAPIKey()}, {"Accept","application/json"}},
+                                      cpr::Body{parsedUrl.dump()});
   std::cout << tradeLink.url << "\n" << tradeLink.status_code << "\n" << json::parse(tradeLink.text).dump(4) << "\n";
   return tradeLink;
 }
@@ -88,13 +84,13 @@ UserCredentials* Profile::userLogin()
   UserCredentials* user = new UserCredentials();
   std::cout << "Please insert your steam username:\n";
   std::string input;
-  std::cin >> input;
+  std::getline(std::cin, input);
   user->setUsername(input);
   std::cout << "Please insert your steam password:\n";
-  std::cin >> input;
+  std::getline(std::cin, input);
   user->setPassword(input);
   std::cout << "Please insert your Bitskins API key:\n";
-  std::cin >> input;
+  std::getline(std::cin, input);
   user->setAPIKey(input);
   this->user = user;
   return user;

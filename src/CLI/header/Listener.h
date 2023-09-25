@@ -7,6 +7,7 @@ class Listener
 {
 public:
 
+  Profile* profile;
 /*╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
   ┃                                                                              ┃
   ┃   Function: Listener class constructor. Description: The constructor will    ┃
@@ -32,5 +33,4 @@ public:
   void listenCommand();
 
 private:
-  Profile* profile;
 };

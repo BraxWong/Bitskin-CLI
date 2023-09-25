@@ -12,7 +12,7 @@ void Listener::listenCommand()
   while (true)
   {
     std::cout << "Please enter a command to get started. If you need help with the program, please enter -help.\n";
-    std::cin >> input;
+    std::getline(std::cin, input);
     if(input == "-help")
     {
       help->showHelp(); 
@@ -37,6 +37,10 @@ void Listener::listenCommand()
     else if(input == "-updateaccount")
     {
       this->profile->updateAccount();
+    }
+    else if(input == "-block")
+    {
+      this->profile->blockAccount();
     }
     else 
     {
