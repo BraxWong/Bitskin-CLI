@@ -6,7 +6,6 @@
 
 void Listener::listenCommand()
 {
-  bool terminateProgram = false;
   Help* help = new Help();
   std::string input;
   while (true)
@@ -15,32 +14,32 @@ void Listener::listenCommand()
     std::getline(std::cin, input);
     if(input == "-help")
     {
-      help->showHelp(); 
+      help->showHelp(true); 
     }
     else if(input == "-quit")   
     {
       delete help;     
       break;
     }
-    else if(input == "-balance")
+    else if(input.find("-balance"))
     {
-      this->profile->getAccountBalance();
+      this->profile->getAccountBalance(input);
     }
-    else if(input == "-session")
+    else if(input.find("-session"))
     {
-      this->profile->getCurrentSession();
+      this->profile->getCurrentSession(input);
     }
-    else if(input == "-tradelink")
+    else if(input.find("-tradelink"))
     {
-      this->profile->updateTradeLink();
+      this->profile->updateTradeLink(input);
     }
-    else if(input == "-updateaccount")
+    else if(input.find("-updateaccount"))
     {
-      this->profile->updateAccount();
+      this->profile->updateAccount(input);
     }
-    else if(input == "-block")
+    else if(input.find("-block"))
     {
-      this->profile->blockAccount();
+      this->profile->blockAccount(input);
     }
     else 
     {
