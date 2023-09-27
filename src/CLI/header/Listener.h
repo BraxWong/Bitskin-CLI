@@ -6,7 +6,11 @@
 class Listener
 {
 public:
-
+  ~Listener()
+  {
+    delete profile;
+    delete this;
+  }
   Profile* profile;
 /*╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
   ┃                                                                              ┃

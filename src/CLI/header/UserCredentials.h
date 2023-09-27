@@ -12,6 +12,10 @@
 class UserCredentials
 {
   public:
+    ~UserCredentials()
+    {
+      delete this;
+    }
 
 /*               ╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
                  ┃                                               ┃

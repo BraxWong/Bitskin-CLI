@@ -32,10 +32,6 @@ int main() {
   profile->userLogin();
   Listener* listener = new Listener(profile);
   listener->listenCommand();
-  delete cli;
-  delete profile->user;
-  delete profile;
-  delete listener;
   size_t memLeakCount;
   uint64_t memLeakSize;
   MemPlumber::memLeakCheck(memLeakCount, memLeakSize, true);

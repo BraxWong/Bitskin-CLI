@@ -7,5 +7,9 @@
 class Help
 {
   public:
+    ~Help()
+    {
+      delete this;
+    }
     void showHelp(bool fromHelpPage, std::string command = "NONE");
 };

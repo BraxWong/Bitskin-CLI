@@ -18,7 +18,6 @@ void Listener::listenCommand()
     }
     else if(input == "-quit")   
     {
-      delete help;     
       break;
     }
     else if(input.find("-balance"))

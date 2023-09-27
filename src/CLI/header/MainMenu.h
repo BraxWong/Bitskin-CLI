@@ -4,6 +4,10 @@
 class CLI {
 public:
 
+  ~CLI()
+  {
+    delete this;
+  }
 /*╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
   ┃                                                                              ┃
   ┃   Function: showCLIGreetings() Description: Activated when the program is    ┃
