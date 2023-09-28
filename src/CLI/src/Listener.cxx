@@ -18,25 +18,26 @@ void Listener::listenCommand()
     }
     else if(input == "-quit")   
     {
+      delete help;     
       break;
     }
-    else if(input.find("-balance"))
+    else if(input.find("-balance") != std::string::npos)
     {
       this->profile->getAccountBalance(input);
     }
-    else if(input.find("-session"))
+    else if(input.find("-session") != std::string::npos)
     {
       this->profile->getCurrentSession(input);
     }
-    else if(input.find("-tradelink"))
+    else if(input.find("-tradelink") != std::string::npos)
     {
       this->profile->updateTradeLink(input);
     }
-    else if(input.find("-updateaccount"))
+    else if(input.find("-updateaccount") != std::string::npos)
     {
       this->profile->updateAccount(input);
     }
-    else if(input.find("-block"))
+    else if(input.find("-block") != std::string::npos)
     {
       this->profile->blockAccount(input);
     }

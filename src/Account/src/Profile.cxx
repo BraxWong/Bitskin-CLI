@@ -12,35 +12,26 @@ using json = nlohmann::json;
 */
 
 
-/*╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
-  ┃                                                                              ┃
-  ┃   FIXME: Figure out why the extra argument -h does not work and why print    ┃
-  ┃                          statements are not showing                          ┃
-  ┃                                                                              ┃
-  ╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯
-*/
-
 cpr::Response Profile::getCurrentSession(std::string input)
 {
-  std::cout << "Hi\n";
   cpr::Response session;
-  if(input.find("-h"))
+  if(input.find("-h") != std::string::npos)
   {
     this->help->showHelp(false, "-session -h");
   }
-  else {
-    std::cout << "Cou;dn't find h.";
-    cpr::Response session = cpr::Get(cpr::Url{"https://api.bitskins.com/account/profile/me"}, 
-                                    cpr::Authentication{this->user->getUsername(), this->user->getPassword(), cpr::AuthMode::DIGEST},
-                                    cpr::Header{{"x-apikey",this->user->getAPIKey()}});
-    std::cout << session.url << "\n" << json::parse(session.text).dump(4) << "\n";
-    return session;
-  }
+  cpr::Response session = cpr::Get(cpr::Url{"https://api.bitskins.com/account/profile/me"}, 
+                                   cpr::Authentication{this->user->getUsername(), this->user->getPassword(), cpr::AuthMode::DIGEST},
+                                   cpr::Header{{"x-apikey",this->user->getAPIKey()}});
+  std::cout << session.url << "\n" << json::parse(session.text).dump(4) << "\n";
   return session;
 }
 
 cpr::Response Profile::getAccountBalance(std::string input)
 {
+  if(input.find("-h") != std::string::npos)
+  {
+    this->help->showHelp(false, "-balance -h");
+  }
   cpr::Response balance = cpr::Post(cpr::Url{"https://api.bitskins.com/account/profile/balance"},
                                     cpr::Authentication{this->user->getUsername(), this->user->getPassword(), cpr::AuthMode::DIGEST},
                                     cpr::Header{{"x-apikey",this->user->getAPIKey()}},
@@ -51,6 +42,10 @@ cpr::Response Profile::getAccountBalance(std::string input)
 
 cpr::Response Profile::updateTradeLink(std::string input)
 {
+  if(input.find("-h") != std::string::npos)
+  {
+    this->help->showHelp(false, "-tradelink -h");
+  }
   std::string Url;
   std::cout << "Please enter your updated trade link.\n";
   std::cin >> Url;
@@ -65,6 +60,10 @@ cpr::Response Profile::updateTradeLink(std::string input)
 
 cpr::Response Profile::updateAccount(std::string input)
 {
+  if(input.find("-h") != std::string::npos)
+  {
+    this->help->showHelp(false, "-updateaccount -h");
+  }
   cpr::Response account = cpr::Post(cpr::Url{"https://api.bitskins.com/account/profile/update_tradelink"},
                                       cpr::Authentication{this->user->getUsername(), this->user->getPassword(), cpr::AuthMode::DIGEST},
                                       cpr::Header{{"x-apikey", this->user->getAPIKey()}},
@@ -83,6 +82,10 @@ cpr::Response Profile::updateAccount(std::string input)
 
 cpr::Response Profile::blockAccount(std::string input)
 {
+  if(input.find("-h") != std::string::npos)
+  {
+    this->help->showHelp(false, "-block -h");
+  }
   cpr::Response block = cpr::Post(cpr::Url{"https://api.bitskins.com/account/profile/block"},
                                       cpr::Authentication{this->user->getUsername(), this->user->getPassword(), cpr::AuthMode::DIGEST},
                                       cpr::Header{{"x-apikey", this->user->getAPIKey()}},
