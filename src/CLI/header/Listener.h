@@ -6,11 +6,11 @@
 class Listener
 {
 public:
-  ~Listener()
-  {
-    delete profile;
-    delete this;
-  }
+  /* ~Listener() */
+  /* { */
+  /*   delete profile; */
+  /*   delete this; */
+  /* } */
   Profile* profile;
 /*╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
   ┃                                                                              ┃

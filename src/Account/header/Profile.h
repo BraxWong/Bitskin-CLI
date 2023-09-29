@@ -9,12 +9,6 @@
 
 class Profile {
 public:
-  ~Profile()
-  {
-    delete user;
-    delete help;
-    delete this;
-  }
   UserCredentials* user;
   Help* help;
 /*╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮

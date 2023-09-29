@@ -32,9 +32,6 @@ int main() {
   profile->userLogin();
   Listener* listener = new Listener(profile);
   listener->listenCommand();
-  size_t memLeakCount;
-  uint64_t memLeakSize;
-  MemPlumber::memLeakCheck(memLeakCount, memLeakSize, true);
-  std::cout << "Number of leaked objects:"+ std::to_string(int(memLeakCount)) + "\nTotal amount of memory leaked:" + std::to_string(int(memLeakSize)) + "[bytes]\n";
+  MemPlumber::stopAndFreeAllMemory();
   return 0;
 }

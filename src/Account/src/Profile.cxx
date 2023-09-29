@@ -14,7 +14,6 @@ using json = nlohmann::json;
 
 cpr::Response Profile::getCurrentSession(std::string input)
 {
-  cpr::Response session;
   if(input.find("-h") != std::string::npos)
   {
     this->help->showHelp(false, "-session -h");

@@ -12,11 +12,6 @@
 class UserCredentials
 {
   public:
-    ~UserCredentials()
-    {
-      delete this;
-    }
-
 /*               ╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
                  ┃                                               ┃
                  ┃ Getters and Setters for UserCredentials Class ┃
