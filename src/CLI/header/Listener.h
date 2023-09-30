@@ -1,4 +1,5 @@
 #include "../../Account/header/Profile.h"
+#include "../../Account/header/Affiliate.h"
 #include <cstdlib>
 #include <stdlib.h>
 #include <string>
@@ -13,6 +14,14 @@ public:
   ┃       store a copy of a Profile object to the current Listener object.       ┃
   ┃                                                                              ┃
   ╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯
+*/
+
+
+/*                 ╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
+                   ┃                                           ┃
+                   ┃ TODO:: Include Affiliation object as well ┃
+                   ┃                                           ┃
+                   ╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯
 */
 
   Listener(Profile* p)

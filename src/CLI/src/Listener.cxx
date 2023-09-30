@@ -41,6 +41,11 @@ void Listener::listenCommand()
     {
       this->profile->blockAccount(input);
     }
+    else if(input.find("-affiliate") != std::string::npos)
+    {
+      Affiliate* affiliate = new Affiliate(this->profile->user, this->profile->help);
+      affiliate->getAffiliateInfo(input);
+    }
     else 
     {
       std::cout << "Command not recognized. Please try again.\n";
