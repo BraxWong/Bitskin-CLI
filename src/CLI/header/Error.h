@@ -1,3 +1,4 @@
+
 enum error
 {
   API_001,
@@ -108,3 +109,5 @@ enum error
   BSSUP_002,
   BAM_STEAM_015
 };
+
+std::map<error, std::string> errorMap;

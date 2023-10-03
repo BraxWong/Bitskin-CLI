@@ -3,6 +3,7 @@ add_library(src
   CLI/src/UserCredentials.cxx
   CLI/src/Help.cxx
   CLI/src/Listener.cxx
+  CLI/src/Error.cxx
   Account/src/Profile.cxx 
   Account/src/Affiliate.cxx
 )

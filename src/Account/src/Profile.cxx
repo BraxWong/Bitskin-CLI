@@ -1,4 +1,5 @@
 #include "../header/Profile.h"
+#include "../../CLI/src/Error.cxx"
 #include <iostream>
 #include <string>
 using json = nlohmann::json;
@@ -21,7 +22,17 @@ cpr::Response Profile::getCurrentSession(std::string input)
   cpr::Response session = cpr::Get(cpr::Url{"https://api.bitskins.com/account/profile/me"}, 
                                    cpr::Authentication{this->user->getUsername(), this->user->getPassword(), cpr::AuthMode::DIGEST},
                                    cpr::Header{{"x-apikey",this->user->getAPIKey()}});
-  std::cout << session.url << "\n" << json::parse(session.text).dump(4) << "\n";
+  json j = json::parse(session.text);
+  try
+  {
+    std::string ErrorMessage = j["code"];
+    std::cout << ErrorMap::errorMap[ErrorMessage] << "\n";
+  }
+  catch(json::out_of_range& e)
+  {
+    std::cerr << "Key not found: " << e.what() << "\n";
+  }
+  //std::cout << session.url << "\n" << json::parse(session.text).dump(4) << "\n";
   return session;
 }
 
