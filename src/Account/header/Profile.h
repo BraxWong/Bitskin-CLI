@@ -1,6 +1,7 @@
 #include <cpr/cpr.h>
 #include "../../CLI/header/UserCredentials.h"
 #include "../../CLI//header/Help.h"
+#include "../../CLI/header/Error.h"
 #include <cstdlib>
 #include <stdlib.h>
 #include <string>
@@ -11,6 +12,7 @@ class Profile {
 public:
   UserCredentials* user;
   Help* help;
+  errormap* em;
 /*╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
   ┃                                                                              ┃
   ┃     Function: getCurrentSession() Description: This method will get the      ┃

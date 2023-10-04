@@ -1,6 +1,7 @@
 #include <cpr/cpr.h>
 #include "../../CLI/header/UserCredentials.h"
 #include "../../CLI//header/Help.h"
+#include "../../CLI/header/Error.h"
 #include <cstdlib>
 #include <stdlib.h>
 #include <string>
@@ -12,11 +13,13 @@ class Affiliate
   public:
     UserCredentials* user;
     Help* help;
+    errormap* em;
     
     Affiliate(UserCredentials* user, Help* help)
     {
       this->user = user;
       this->help = help;
+      this->em = new errormap();
     }
 
 /*╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮

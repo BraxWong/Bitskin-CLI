@@ -16,7 +16,11 @@ cpr::Response Affiliate::getAffiliateInfo(std::string input)
                                  cpr::Body{});
   if(affiliate_info.text[0] == '{')
   {
-    std::cout << affiliate_info.url << "\n" << json::parse(affiliate_info.text).dump(4) << "\n";
+    json j = json::parse(affiliate_info.text);
+    if(!this->em->checkErrorResponse(j))
+    {
+      std::cout << affiliate_info.url << "\n" << json::parse(affiliate_info.text).dump(4) << "\n";
+    }
   }
   else 
   {

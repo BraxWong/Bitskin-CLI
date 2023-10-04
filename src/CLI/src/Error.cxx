@@ -1,128 +1,15 @@
-#include <iostream>
-#include <map>
-#include <string>
+#include <stdio.h>
+#include <stdlib.h>
+#include "../header/Error.h"
+using json = nlohmann::json;
 
-/*                           ╭━━━━━━━━━━━━━━━━━━━━━━━╮
-                             ┃                       ┃
-                             ┃ FIXME:: Fix this mess ┃
-                             ┃                       ┃
-                             ╰━━━━━━━━━━━━━━━━━━━━━━━╯
-*/
-
-namespace ErrorMap
+bool errormap::checkErrorResponse(json j)
 {
-  class errormap {
-    public:
-      std::map<std::string, std::string> errorMap = {
-        {"API_001", "Missing API Key."},
-        {"API_002", "Missing API Secret."},
-        {"API_003", "Wrong IP Address."},
-        {"API_004", "Private IP Address."},
-        {"API_005", "Wrong API Key."},
-        {"GLO_000", "Internal Error."},
-        {"GLO_001", "Action Not Allowed."},
-        {"GLO_002", "Access Denied."},
-        {"GLO_003", "Validator Error."},
-        {"GLO_004", "Wrong Body."},
-        {"GLO_005", "Wrong Token."},
-        {"GLO_006", "Missing Token."},
-        {"GLO_007", "Access Denied."},
-        {"GLO_008", "Connection Timeout."},
-        {"GLO_009", "Login Required."},
-        {"GLO_010", "Not Found."},
-        {"GLO_011", "Wrong Value."},
-        {"GLO_012", "Token Expired."},
-        {"GLO_013", "Service Not Available."},
-        {"GLO_014", "2FA Authentication Required."},
-        {"GLO_015", "Login Required."},
-        {"MUT_001", "Long Lock, Try Again In Seconds."},
-    {"MUT_002", "Exclusive Lock."},
-    {"ACC_001", "Account Banned."},
-    {"ACC_002", "Account Blocked."},
-    {"ACC_003", "Wrong Login Or Password."},
-    {"ACC_004", "Wrong Login."},
-    {"ACC_005", "Wrong Password."},
-    {"ACC_006", "Email Address Not Assigned."},
-    {"ACC_007", "The Same Password Was Used."},
-    {"ACC_008", "Wrong 2FA Code."},
-    {"ACC_009", "2FA Not Created."},
-    {"ACC_010", "2FA Already Created."},
-    {"ACC_011", "2FA Limited."},
-    {"ACC_012", "Not Exists."},
-    {"ACC_013", "Migration."},
-    {"ACC_014", "Passowrd Needs To Have 8 To 64 Characters And At Least One: Uppercase, Lowercase, Number, Special."},
-    {"BSA_001", "API Key Not Created."},
-    {"BSA_002", "API Key Already Created."},
-    {"BSA_003", "Account Deletion Already Started."},
-    {"BSA_004", "External Withdraw Is Not Available."},
-    {"BSA_005", "KYC Wrong Step."},
-    {"BSA_006", "KYC Required."},
-    {"BSA_007", "Action Not Allowed."},
-    {"REC_001", "Item Not Found."},
-    {"REC_002", "Item Not Owned."},
-    {"REC_003", "Own Item."},
-    {"REC_004", "Already Exists."},
-    {"REC_005", "Not Exists."},
-    {"REC_006", "Not Updated."},
-    {"REC_007", "Forbidden."},
-    {"PAY_001", "Card Scoring Is Too Low."},
-    {"PAY_002", "Payment Issue."},
-    {"AUTH_001", "Failed To Authenticat."},
-    {"AUTH_002", "Not Valid Identity."},
-    {"AUTH_003", "Authentication Failed."},
-    {"IPN_001", "Verification Issue."},
-    {"BSM_001", "Wrong Item Status."},
-    {"BSM_002", "Item Already Queued."},
-    {"BSM_003", "Max Price Limit."},
-    {"BSM_004", "Item Not Available."},
-    {"BSM_005", "Plan Not Found."},
-    {"BSM_006", "No Items Found."},
-    {"BSM_007", "Items Limit."},
-    {"BSM_008", "Instant Sell Disabled."},
-    {"BSM_009", "Price Too Low."},
-    {"BSS_001", "Wrong Trade Link."},
-    {"BSS_002", "Private Steam Inventory."},
-    {"BSS_003", "We Cannot Check Trade Ban."},
-    {"BSS_004", "Cannot check escrow."},
-    {"BSS_005", "VAC ban."},
-    {"BSS_006", "Community Ban."},
-    {"BSS_007", "Economy Ban."},
-    {"BSS_008", "Private Steam Profile."},
-    {"BSS_009", "You Are Using Email Stream guard Which Is Not Enough To Be Able To Trade With Bitskins's Bot."},
-    {"BSS_010", "Wrong Token."},
-    {"BSS_011", "Missing Steam Trade URL."},
-    {"BSS_012", "Missing Steam ID."},
-    {"BSS_013", "No Connection With Steamm Servers May Be Down. Please Try Again Later."},
-    {"BSS_014", "You Need To Set Up Steam Profile First."},
-    {"BSS_015", "You Must Enable Steam Guard Before You Can Participate In A Trade. Enable Steam Guard From The Steam Client Settings Window."},
-    {"BSB_001", "Bot Not Found."},
-    {"BSB_002", "Bot Not Available."},
-    {"BSW_001", "Cannot Transfer Money."},
-    {"BSW_002", "Amount Negative."},
-    {"BSW_003", "Amount Postivie."},
-    {"BSW_004", "Card Scoring Too Low."},
-    {"BSW_005", "Not Enought Balance."},
-    {"BSW_006", "KYC Window Limit."},
-    {"BSW_007", "Service WIndow Limit."},
-    {"BSW_008", "Amount Limit."},
-    {"BSW_009", "Wrong Wallet Address."},
-    {"BSW_010", "Card Not Found."},
-    {"BSW_011", "We Cannot Process Your Transaction."},
-    {"BSW_012", "Only Past Months Accepted."},
-    {"BSW_013", "Only VISA Cards Are Allowed."},
-    {"BSGC_001", "Code Not Found."},
-    {"BSGC_002", "Code Already Used."},
-    {"BSGC_003", "This Is Your Own Code."},
-    {"BAFF_001", "Same Code."},
-    {"BAFF_002", "This Code Is Already Taken."},
-    {"BAFF_003", "Not Activated."},
-    {"BAFF_004", "Not Enough Balance."},
-    {"BSSOC_001", "Cannot Create Chat."},
-    {"BSSUP_001", "Wrong Status."},
-    {"BSSUP_002", "Ticket Limit."},
-    {"BAM_STEAM_015", "Bitskins Bots Have Lost Steam Sessions. Please Try Again In A Few Minutes."}
+  if(j.contains("code"))
+  {
+    std::string ErrorMessage = j["code"];
+    std::cout << this->errorMap[ErrorMessage] << "\n";
+    return true;
   }
-  };
-  ;
+  return false;
 }
-
