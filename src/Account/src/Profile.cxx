@@ -55,7 +55,7 @@ cpr::Response Profile::updateTradeLink(std::string input)
   }
   std::string Url;
   std::cout << "Please enter your updated trade link.\n";
-  std::cin >> Url;
+  std::getline(std::cin, Url);
   json parsedUrl = {{"tradelink", Url}};
   cpr::Response tradeLink = cpr::Post(cpr::Url{"https://api.bitskins.com/account/profile/update_tradelink"},
                                       cpr::Authentication{this->user->getUsername(), this->user->getPassword(), cpr::AuthMode::DIGEST},

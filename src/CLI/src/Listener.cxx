@@ -43,8 +43,7 @@ void Listener::listenCommand()
     }
     else if(input.find("-affiliate") != std::string::npos)
     {
-      Affiliate* affiliate = new Affiliate(this->profile->user, this->profile->help);
-      affiliate->getAffiliateInfo(input);
+      this->affiliate->getAffiliateInfo(input);
     }
     else 
     {

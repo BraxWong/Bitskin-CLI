@@ -11,8 +11,8 @@ cpr::Response Affiliate::getAffiliateInfo(std::string input)
     this->help->showHelp(false,input);
   }
   cpr::Response affiliate_info = cpr::Post(cpr::Url{"https://api.bitskins.com/account/affiliate/me"}, 
-                                 cpr::Authentication{this->user->getUsername(), this->user->getPassword(), cpr::AuthMode::DIGEST},
-                                 cpr::Header{{"x-apikey",this->user->getAPIKey()}},
+                                 cpr::Authentication{this->profile->user->getUsername(), this->profile->user->getPassword(), cpr::AuthMode::DIGEST},
+                                 cpr::Header{{"x-apikey",this->profile->user->getAPIKey()}},
                                  cpr::Body{});
   if(affiliate_info.text[0] == '{')
   {

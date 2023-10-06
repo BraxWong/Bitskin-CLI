@@ -1,7 +1,7 @@
 #include <cpr/cpr.h>
-#include "../../CLI/header/UserCredentials.h"
 #include "../../CLI//header/Help.h"
 #include "../../CLI/header/Error.h"
+#include "Profile.h"
 #include <cstdlib>
 #include <stdlib.h>
 #include <string>
@@ -11,15 +11,15 @@
 class Affiliate
 {
   public:
-    UserCredentials* user;
+    Profile* profile;
     Help* help;
     errormap* em;
     
-    Affiliate(UserCredentials* user, Help* help)
+    Affiliate(Profile* profile)
     {
-      this->user = user;
-      this->help = help;
-      this->em = new errormap();
+      this->profile = profile; 
+      this->help = this->profile->help;
+      this->em = this->profile->em;
     }
 
 /*╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮

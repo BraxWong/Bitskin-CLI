@@ -8,6 +8,7 @@ class Listener
 {
 public:
   Profile* profile;
+  Affiliate* affiliate;
 /*╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
   ┃                                                                              ┃
   ┃   Function: Listener class constructor. Description: The constructor will    ┃
@@ -24,9 +25,10 @@ public:
                    ╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯
 */
 
-  Listener(Profile* p)
+  Listener(Profile* p, Affiliate* a)
   {
     this->profile = p;
+    this->affiliate = a;
   }
 
 /*╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
