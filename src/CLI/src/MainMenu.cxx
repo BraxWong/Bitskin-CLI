@@ -3,7 +3,7 @@
 #include <iostream>
 #include <stdio.h>
 
-void CLI::showCLIGreetings() {
+void MAINMENU_H::CLI::showCLIGreetings() {
   std::cout << "────────────────────────────────────────────────────────────\n";
   std::cout << "              Welcome to Bitskins API V2 CLI\n";
   std::cout << "NOTICE: This software is not affliated with Bitskins itself "

@@ -2,17 +2,17 @@
 #include <iostream>
 #include <stdio.h>
 
-void UserCredentials::setUsername(std::string username)
+void USERCREDENTIALS_H::UserCredentials::setUsername(std::string username)
 {
   this->Username = username;
 }
 
-void UserCredentials::setPassword(std::string password)
+void USERCREDENTIALS_H::UserCredentials::setPassword(std::string password)
 {
   this->Password = password;
 }
 
-void UserCredentials::setAPIKey(std::string APIKey)
+void USERCREDENTIALS_H::UserCredentials::setAPIKey(std::string APIKey)
 {
   this->APIKey = APIKey;
 }

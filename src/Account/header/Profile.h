@@ -1,3 +1,5 @@
+#ifndef PROFILE_H
+#define PROFILE_H
 #include <cpr/cpr.h>
 #include "../../CLI/header/UserCredentials.h"
 #include "../../CLI//header/Help.h"
@@ -12,7 +14,7 @@ class Profile {
 public:
   UserCredentials* user;
   Help* help;
-  errormap* em;
+  ERRORMAP::errormap* em;
 /*╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
   ┃                                                                              ┃
   ┃     Function: getCurrentSession() Description: This method will get the      ┃
@@ -82,3 +84,4 @@ public:
 
   UserCredentials* userLogin();
 };
+#endif // !PROFILE_H

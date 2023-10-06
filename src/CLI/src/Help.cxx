@@ -2,7 +2,7 @@
 #include <iostream>
 #include <stdio.h>
 
-void Help::showHelp(bool fromHelpPage, std::string command)
+void HELP_H::Help::showHelp(bool fromHelpPage, std::string command)
 {
   if(fromHelpPage)
   {

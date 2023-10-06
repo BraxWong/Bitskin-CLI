@@ -135,6 +135,6 @@ UserCredentials* Profile::userLogin()
   std::getline(std::cin, input);
   user->setAPIKey(input);
   this->user = user;
-  this->em = new errormap();
+  this->em = new ERRORMAP::errormap();
   return user;
 }

@@ -1,7 +1,8 @@
+#ifndef USERCREDENTIALS_H
+#define USERCREDENTIALS_H
 #include <cstdlib>
 #include <stdlib.h>
 #include <string>
-#pragma once
 /*                   ╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
                      ┃                                      ┃
                      ┃ UserCredentials Class Documentations ┃
@@ -30,4 +31,4 @@ class UserCredentials
     std::string Password;
     std::string APIKey;
 };
-
+#endif // !USERCREDENTIALS_H

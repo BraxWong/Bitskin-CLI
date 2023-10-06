@@ -1,10 +1,14 @@
+#ifndef ERROR_H
+#define ERROR_H
 #include <iostream>
 #include <map>
 #include <string>
 #include <nlohmann/json.hpp>
 #pragma once
 using json = nlohmann::json;
-class errormap {
+namespace ERRORMAP
+{
+  class errormap {
     public:
       std::map<std::string, std::string> errorMap = {
         {"API_001", "Missing API Key."},
@@ -116,4 +120,6 @@ class errormap {
         {"BAM_STEAM_015", "Bitskins Bots Have Lost Steam Sessions. Please Try Again In A Few Minutes."}
       };
       bool checkErrorResponse(json j);
-};
+  };
+}
+#endif // !ERROR_H

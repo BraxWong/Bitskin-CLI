@@ -3,7 +3,7 @@
 #include "../header/Error.h"
 using json = nlohmann::json;
 
-bool errormap::checkErrorResponse(json j)
+bool ERRORMAP::errormap::checkErrorResponse(json j)
 {
   if(j.contains("code"))
   {

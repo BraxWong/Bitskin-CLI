@@ -1,3 +1,5 @@
+#ifndef MAINMENU_H
+#define MAINMENU_H
 #include <cstdlib>
 #include <stdio.h>
 
@@ -13,3 +15,4 @@ public:
 
   void showCLIGreetings();
 };
+#endif // !MAINMENU_H

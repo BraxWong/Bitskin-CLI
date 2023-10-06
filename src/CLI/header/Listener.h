@@ -1,3 +1,5 @@
+#ifndef LISTENER_H
+#define LISTENER_H
 #include "../../Account/header/Profile.h"
 #include "../../Account/header/Affiliate.h"
 #include <cstdlib>
@@ -44,3 +46,4 @@ public:
 
 private:
 };
+#endif // !LISTENER_H
