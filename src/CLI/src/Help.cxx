@@ -8,7 +8,7 @@ void HELP_H::Help::showHelp(bool fromHelpPage, std::string command)
   {
     std::cout << "Help Page:\n";
     std::cout << "Currently this program has 6 commands available.\n";
-    std::cout << "1: -help\n2: -quit\n3: -balance\n4: -session\n5: -tradelink\n6: -updateaccount\n7: -block\n";
+    std::cout << "1: -help\n2: -quit\n3: -balance\n4: -session\n5: -tradelink\n6: -updateaccount\n7: -block\n8: -affiliate\n9: -claimmoney\n";
     std::cout << "To obtain for information regarding one specific command, type in the command you want with the argument -h\n";
     std::cout << "For example: -quit -h\n";
     std::cout << "Enter -q to leave the help page.\n";
@@ -47,9 +47,21 @@ void HELP_H::Help::showHelp(bool fromHelpPage, std::string command)
     {
       std::cout << "When -block is entered, the user's Bitskins account will be blocked. WARNING!!!You will have to go to Bitskins website in order to unblock your account. Use this command only if you really have to.\n";
     }
+    else if(command == "-affiliate -h")
+    {
+      std::cout << "When -affiliate is entered, the user will be shown its affiliation information with Bitskins. If you have not activated the affiliation program, no information will be displayed.\n";
+    }
+    else if(command == "-claimmoney -h")
+    {
+      std::cout << "When -claimmoeny is entered, the user will be allowed to claim the balance that is obtained from Bitskins' affiliation program. Further information can be found on Bitskins' website. Notice, if you do not have an affilation program with Bitskins, you will get the error code: Not Activated. Which means you have not activated the Bitskins' affiliation program on your accout.\n";
+    }
     else if(command == "-q")
     {
       break;
+    }
+    else
+    {
+      std::cout << "Command not found.\n";
     }
     if(!fromHelpPage)
     {

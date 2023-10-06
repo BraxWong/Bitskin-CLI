@@ -45,6 +45,10 @@ void Listener::listenCommand()
     {
       this->affiliate->getAffiliateInfo(input);
     }
+    else if(input.find("-claimmoney") != std::string::npos)
+    {
+      this->affiliate->claimMoney(input);
+    }
     else 
     {
       std::cout << "Command not recognized. Please try again.\n";

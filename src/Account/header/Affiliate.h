@@ -34,6 +34,7 @@ class Affiliate
     ╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯
   */
 
-      cpr::Response getAffiliateInfo(std::string input); 
+  cpr::Response getAffiliateInfo(std::string input); 
+  cpr::Response claimMoney(std::string input);
 };
 #endif // !AFFILIATE_H

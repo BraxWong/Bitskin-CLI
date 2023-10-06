@@ -8,7 +8,7 @@ cpr::Response Affiliate::getAffiliateInfo(std::string input)
 {
   if(input.find("-h") != std::string::npos)
   {
-    this->help->showHelp(false,input);
+    this->help->showHelp(false, input);
   }
   cpr::Response affiliate_info = cpr::Post(cpr::Url{"https://api.bitskins.com/account/affiliate/me"}, 
                                  cpr::Authentication{this->profile->user->getUsername(), this->profile->user->getPassword(), cpr::AuthMode::DIGEST},
@@ -27,5 +27,22 @@ cpr::Response Affiliate::getAffiliateInfo(std::string input)
     std::cout << "No response.\n";
   }
   return affiliate_info;
+}
 
+cpr::Response Affiliate::claimMoney(std::string input)
+{
+  if(input.find("-h") != std::string::npos)
+  {
+    this->help->showHelp(false, input);
+  }
+  cpr::Response response = cpr::Post(cpr::Url{"https://api.bitskins.com/account/affiliate/transfer_money"}, 
+                                 cpr::Authentication{this->profile->user->getUsername(), this->profile->user->getPassword(), cpr::AuthMode::DIGEST},
+                                 cpr::Header{{"x-apikey",this->profile->user->getAPIKey()}},
+                                 cpr::Body{});
+  json j = json::parse(response.text);
+  if(!this->em->checkErrorResponse(j))
+  {
+    std::cout << response.url << "\n" << json::parse(response.text).dump(4) << "\n";
+  }
+  return response;
 }
