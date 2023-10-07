@@ -8,13 +8,19 @@
 #include <stdlib.h>
 #include <string>
 #include <nlohmann/json.hpp>
-#pragma once
+#include "../../CLI/header/ArgumentListener.h"
 
 class Profile {
 public:
   UserCredentials* user;
   Help* help;
   ERRORMAP::errormap* em;
+  ARGUMENTLISTENER_H::ArgumentListener* argumentListener;
+  Profile()
+  {
+    this->argumentListener = new ArgumentListener();
+  }
+  
 /*╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
   ┃                                                                              ┃
   ┃     Function: getCurrentSession() Description: This method will get the      ┃

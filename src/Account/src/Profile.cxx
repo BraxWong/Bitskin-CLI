@@ -22,10 +22,11 @@ cpr::Response Profile::getCurrentSession(std::string input)
                                    cpr::Authentication{this->user->getUsername(), this->user->getPassword(), cpr::AuthMode::DIGEST},
                                    cpr::Header{{"x-apikey",this->user->getAPIKey()}});
   json j = json::parse(session.text);
-  if(!this->em->checkErrorResponse(j))
+  if(!this->em->checkErrorResponse(j) && !this->argumentListener->displayArgumentInfoOnly(j, input))
   {
     std::cout << session.url << "\n" << json::parse(session.text).dump(4) << "\n";
   }
+  
   return session;
 }
 
@@ -40,7 +41,7 @@ cpr::Response Profile::getAccountBalance(std::string input)
                                     cpr::Header{{"x-apikey",this->user->getAPIKey()}},
                                     cpr::Body{});
   json j = json::parse(balance.text);
-  if(!this->em->checkErrorResponse(j))
+  if(!this->em->checkErrorResponse(j) && !this->argumentListener->displayArgumentInfoOnly(j, input))
   {
     std::cout << balance.url << "\n" << balance.status_code << "\n" << json::parse(balance.text).dump(4) << "\n";
   }
@@ -63,7 +64,7 @@ cpr::Response Profile::updateTradeLink(std::string input)
                                       cpr::Body{parsedUrl.dump()});
 
   json j = json::parse(tradeLink.text);
-  if(!this->em->checkErrorResponse(j))
+  if(!this->em->checkErrorResponse(j) && !this->argumentListener->displayArgumentInfoOnly(j, input))
   {
     std::cout << tradeLink.url << "\n" << tradeLink.status_code << "\n" << json::parse(tradeLink.text).dump(4) << "\n";
   }
@@ -81,7 +82,7 @@ cpr::Response Profile::updateAccount(std::string input)
                                       cpr::Header{{"x-apikey", this->user->getAPIKey()}},
                                       cpr::Payload{{"tradelink", "https://steamcommunity.com/tradeoffer/new/?partner=1111&token=AAAA"}});
   json j = json::parse(account.text);
-  if(!this->em->checkErrorResponse(j))
+  if(!this->em->checkErrorResponse(j) && !this->argumentListener->displayArgumentInfoOnly(j, input))
   {
     std::cout << account.url << "\n" << account.status_code << "\n" << json::parse(account.text).dump(4) << "\n";
   }
@@ -107,7 +108,7 @@ cpr::Response Profile::blockAccount(std::string input)
                                       cpr::Header{{"x-apikey", this->user->getAPIKey()}},
                                       cpr::Body{});
   json j = json::parse(block.text);
-  if(!this->em->checkErrorResponse(j))
+  if(!this->em->checkErrorResponse(j) && !this->argumentListener->displayArgumentInfoOnly(j, input))
   {
     std::cout << block.url << "\n" << block.status_code << "\n" << json::parse(block.text).dump(4) << "\n";
   }

@@ -8,19 +8,23 @@
 #include <stdlib.h>
 #include <string>
 #include <nlohmann/json.hpp>
+#include "../../CLI/header/ArgumentListener.h"
+
 class Affiliate
 {
-    public:
-      Profile* profile;
-      Help* help;
-      ERRORMAP::errormap* em;
-    
-      Affiliate(Profile* profile)
-      {
-        this->profile = profile; 
-        this->help = this->profile->help;
-        this->em = this->profile->em;
-      }
+  public:
+    Profile* profile;
+    Help* help;
+    ERRORMAP::errormap* em;
+    ARGUMENTLISTENER_H::ArgumentListener* argumentListener;
+     
+    Affiliate(Profile* profile)
+    {
+      this->profile = profile; 
+      this->help = this->profile->help;
+      this->em = this->profile->em;
+      this->argumentListener = new ArgumentListener();
+    }
 
   /*╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
     ┃                                                                              ┃
@@ -34,7 +38,19 @@ class Affiliate
     ╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯
   */
 
-  cpr::Response getAffiliateInfo(std::string input); 
-  cpr::Response claimMoney(std::string input);
+    cpr::Response getAffiliateInfo(std::string input); 
+
+
+/*╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
+  ┃                                                                              ┃
+  ┃      Function: claimMoeny() Description: This method will give you the       ┃
+  ┃         option to claim the money that was earned from the Bitskins'         ┃
+  ┃   affiliation program. Notice: If the user has not activated the bitskins    ┃
+  ┃                  affiliation program, an error will return.                  ┃
+  ┃                                                                              ┃
+  ╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯
+*/
+
+    cpr::Response claimMoney(std::string input);
 };
 #endif // !AFFILIATE_H
