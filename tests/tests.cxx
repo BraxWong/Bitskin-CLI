@@ -38,7 +38,6 @@ bool checkErrorMap(std::string username, std::string password, std::string APIKe
   json j = json::parse(response.text);
   for(auto const& x : profile->em->errorMap )
   {
-      std::cout << j["code"] << ":" << x.first << "\n";
     if(j["code"] == x.first)
     {
       return true;
@@ -57,11 +56,13 @@ bool checkErrorMap(std::string username, std::string password, std::string APIKe
 
 TEST_CASE("checkAPIKey()","[checkAPIKey]")
 {
+  std::cout << "Running checkAPIKey() test.\n";
   //Have tested with a real account and passed. Not showing real username, password, and key
   REQUIRE(checkAPIKey("blah","blah","dsjakldjsalkjdsa") == false);
 }
 
 TEST_CASE("checkErrorMap()","[checkErrorMap]")
 {
+  std::cout << "Running checkErrorMap() test.\n";
   REQUIRE(checkErrorMap("blah","blah","blah") == true);
 }
