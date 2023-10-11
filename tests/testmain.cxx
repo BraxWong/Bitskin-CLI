@@ -1,5 +1,6 @@
 #include "tests.cxx"
 #include "UserCredentialsTests.cxx"
+#include "ArgumentListenerTests.cxx"
 
 /*╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
   ┃                                                                              ┃
