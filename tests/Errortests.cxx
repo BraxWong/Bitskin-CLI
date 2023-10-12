@@ -8,23 +8,6 @@
 #include <stdio.h>
 using json = nlohmann::json;
 
-bool checkAPIKey(std::string username, std::string password, std::string APIKey)
-{
-  Profile* profile = new Profile();
-  UserCredentials* uc = new UserCredentials();
-  profile->em = new ERRORMAP::errormap();
-  uc->setUsername(username);
-  uc->setPassword(password);
-  uc->setAPIKey(APIKey);
-  profile->user = uc;
-  cpr::Response response = profile->getCurrentSession("-session");
-  if(response.text.find("steam_id") != std::string::npos)
-  {
-    return true;
-  }
-  return false;
-} 
-
 bool checkErrorMap(std::string username, std::string password, std::string APIKey)
 {
   Profile* profile = new Profile();
@@ -54,12 +37,6 @@ bool checkErrorMap(std::string username, std::string password, std::string APIKe
    ╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯
 */
 
-TEST_CASE("checkAPIKey()","[checkAPIKey]")
-{
-  std::cout << "Running checkAPIKey() test.\n";
-  //Have tested with a real account and passed. Not showing real username, password, and key
-  REQUIRE(checkAPIKey("blah","blah","dsjakldjsalkjdsa") == false);
-}
 
 TEST_CASE("checkErrorMap()","[checkErrorMap]")
 {

@@ -1,4 +1,4 @@
-#include "tests.cxx"
+#include "Errortests.cxx"
 #include "UserCredentialsTests.cxx"
 #include "ArgumentListenerTests.cxx"
 
