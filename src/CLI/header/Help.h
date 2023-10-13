@@ -8,6 +8,6 @@
 class Help
 {
   public:
-    void showHelp(bool fromHelpPage, std::string command = "NONE");
+    bool showHelp(bool fromHelpPage, std::string command = "NONE");
 };
 #endif // !HELP_H

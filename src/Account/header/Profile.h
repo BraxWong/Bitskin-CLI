@@ -8,17 +8,17 @@
 #include <stdlib.h>
 #include <string>
 #include <nlohmann/json.hpp>
-#include "../../CLI/header/ArgumentListener.h"
+#include "../../CLI/header/ResponseDisplayer.h"
 
 class Profile {
 public:
   UserCredentials* user;
   Help* help;
   ERRORMAP::errormap* em;
-  ARGUMENTLISTENER_H::ArgumentListener* argumentListener;
+  ResponseDisplayer* responseDisplayer;
   Profile()
   {
-    this->argumentListener = new ArgumentListener();
+    this->responseDisplayer = new ResponseDisplayer();
   }
   
 /*╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮

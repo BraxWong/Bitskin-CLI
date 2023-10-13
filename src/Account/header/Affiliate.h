@@ -8,7 +8,7 @@
 #include <stdlib.h>
 #include <string>
 #include <nlohmann/json.hpp>
-#include "../../CLI/header/ArgumentListener.h"
+#include "../../CLI/header/ResponseDisplayer.h"
 
 class Affiliate
 {
@@ -16,14 +16,14 @@ class Affiliate
     Profile* profile;
     Help* help;
     ERRORMAP::errormap* em;
-    ARGUMENTLISTENER_H::ArgumentListener* argumentListener;
+    ResponseDisplayer* responseDisplayer;
      
     Affiliate(Profile* profile)
     {
       this->profile = profile; 
       this->help = this->profile->help;
       this->em = this->profile->em;
-      this->argumentListener = new ArgumentListener();
+      this->responseDisplayer = new ResponseDisplayer();
     }
 
   /*╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮

@@ -1,9 +1,9 @@
-#include "../header/ArgumentListener.h"
+#include "../header/ResponseDisplayer.h"
 #include <iostream>
 #include <stdio.h>
 #include <unistd.h>
 
-bool ArgumentListener::displayArgumentInfoOnly(json j, std::string input)
+bool ResponseDisplayer::displayArgumentInfoOnly(json j, std::string input)
 {
   //Find out if an argument is present within the command
   if(input.find("-arg") == std::string::npos)
@@ -24,4 +24,26 @@ bool ArgumentListener::displayArgumentInfoOnly(json j, std::string input)
   //Argument provided is invalid. Print out the error message.
   std::cout << "Invalid Argument. Please check the help page for more information.\n";
   return false;
+}
+
+bool ResponseDisplayer::displayHttpResponse(ERRORMAP::errormap* em, cpr::Response response, std::string input)
+{
+  if(response.error)
+  {
+    return false;
+  }
+  if(response.text[0] == '{')
+  {
+    json j = json::parse(response.text);
+    if(!em->checkErrorResponse(j) && !this->displayArgumentInfoOnly(j, input))
+    {
+      std::cout << response.url << "\n" << j.dump(4) << "\n";
+    }
+  }
+  else 
+  {
+    std::cout << "No Response\n";
+    return true;
+  }
+  return true;
 }

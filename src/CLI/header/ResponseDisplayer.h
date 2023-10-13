@@ -1,10 +1,13 @@
-#ifndef ARGUMENTLISTENER_H 
-#define ARGUMENTLISTENER_H
+#ifndef RESPONSEDISPLAYER_H 
+#define RESPONSEDISPLAYER_H
+#include "Error.h"
 #include <iostream>
 #include <string>
 #include <nlohmann/json.hpp>
+#include <cpr/cpr.h>
 using json = nlohmann::json;
-class ArgumentListener {
+
+class ResponseDisplayer {
   public:
 
 /*╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
@@ -18,5 +21,7 @@ class ArgumentListener {
 */
 
     bool displayArgumentInfoOnly(json j, std::string input);
+
+    bool displayHttpResponse(ERRORMAP::errormap* em, cpr::Response response, std::string input);
 };
 #endif

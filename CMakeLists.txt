@@ -18,9 +18,9 @@ cmake_minimum_required(VERSION 3.13.4)
 set(CMAKE_CXX_STANDARD 17)
 project(Bitskin-UI VERSION 1.0)
 #Uncomment the following line if you want to run the program
-#add_executable(${PROJECT_NAME} main.cxx)
+add_executable(${PROJECT_NAME} main.cxx)
 #Uncomment the following line if you want to run all the tests
-add_executable(${PROJECT_NAME} tests/testmain.cxx)
+#add_executable(${PROJECT_NAME} tests/testmain.cxx)
 find_package(nlohmann_json 3.2.0 REQUIRED)
 add_subdirectory(
   src

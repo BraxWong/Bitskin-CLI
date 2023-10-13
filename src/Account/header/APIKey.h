@@ -8,7 +8,7 @@
 #include <stdlib.h>
 #include <string>
 #include <nlohmann/json.hpp>
-#include "../../CLI/header/ArgumentListener.h"
+#include "../../CLI/header/ResponseDisplayer.h"
 
 class APIKey
 {
@@ -16,16 +16,28 @@ class APIKey
     Profile* profile;
     Help* help;
     ERRORMAP::errormap* em;
-    ARGUMENTLISTENER_H::ArgumentListener* argumentListener;
+    ResponseDisplayer* responseDisplayer;
 
     APIKey(Profile* profile)
     {
       this->profile = profile;
       this->help = this->profile->help;
       this->em = this->profile->em;
-      this->argumentListener = new ArgumentListener();
+      this->responseDisplayer = new ResponseDisplayer();
     }
-    CPR::Response disableAPIKey(std::string input);
-};
 
+
+/*╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
+  ┃                                                                              ┃
+  ┃     Function: disableAPIKey() Description: This function takes a string      ┃
+  ┃    input. It will display the user's Bitskins' APIKey. It will then print    ┃
+  ┃            out the url and the text. Return: cpr::Response object            ┃
+  ┃                                                                              ┃
+  ╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯
+*/
+
+    cpr::Response disableAPIKey(std::string input);
+
+};
+#endif
 

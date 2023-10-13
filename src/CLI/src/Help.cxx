@@ -2,7 +2,7 @@
 #include <iostream>
 #include <stdio.h>
 
-void HELP_H::Help::showHelp(bool fromHelpPage, std::string command)
+bool HELP_H::Help::showHelp(bool fromHelpPage, std::string command)
 {
   if(fromHelpPage)
   {
@@ -68,4 +68,5 @@ void HELP_H::Help::showHelp(bool fromHelpPage, std::string command)
       break;
     }
   }
+  return true;
 }

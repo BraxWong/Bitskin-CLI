@@ -4,7 +4,8 @@ add_library(src
   CLI/src/Help.cxx
   CLI/src/Listener.cxx
   CLI/src/Error.cxx
-  CLI/src/ArgumentListener.cxx
+  CLI/src/ResponseDisplayer.cxx
+  Account/src/APIKey.cxx
   Account/src/Profile.cxx 
   Account/src/Affiliate.cxx
 )
