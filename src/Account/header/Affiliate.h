@@ -3,12 +3,13 @@
 #include <cpr/cpr.h>
 #include "../../CLI//header/Help.h"
 #include "../../CLI/header/Error.h"
+#include "../../bash/header/ExecuteBash.h"
+#include "../../CLI/header/ResponseDisplayer.h"
 #include "Profile.h"
 #include <cstdlib>
 #include <stdlib.h>
 #include <string>
 #include <nlohmann/json.hpp>
-#include "../../CLI/header/ResponseDisplayer.h"
 
 class Affiliate
 {
@@ -54,5 +55,7 @@ class Affiliate
     cpr::Response claimMoney(std::string input);
 
     cpr::Response getListHistoricalRewards(std::string input);
+
+    void setAffiliateCode(std::string input);
 };
 #endif // !AFFILIATE_H

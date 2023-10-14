@@ -22,7 +22,7 @@ cpr::Response Profile::getCurrentSession(std::string input)
                                    cpr::Header{{"x-apikey",this->user->getAPIKey()}});
 
   this->responseDisplayer->displayHttpResponse(this->em, session, input); 
-  
+
   return session;
 }
 
@@ -41,8 +41,9 @@ cpr::Response Profile::getAccountBalance(std::string input)
   return balance;
 }
 
-cpr::Response Profile::updateTradeLink(std::string input)
+void Profile::updateTradeLink(std::string input)
 {
+  ExecuteBash* eb = new ExecuteBash();
   if(input.find("-h") != std::string::npos)
   {
     this->help->showHelp(false, "-tradelink -h");
@@ -51,12 +52,8 @@ cpr::Response Profile::updateTradeLink(std::string input)
   std::cout << "Please enter your updated trade link.\n";
   std::getline(std::cin, Url);
   json parsedUrl = {{"tradelink", Url}};
-  cpr::Response tradeLink = cpr::Post(cpr::Url{"https://api.bitskins.com/account/profile/update_tradelink"},
-                                      cpr::Header{{"Content-Type","application/json"},{"x-apikey", this->user->getAPIKey()}, {"Accept","application/json"}},
-                                      cpr::Body{parsedUrl.dump()});
-
-  this->responseDisplayer->displayHttpResponse(this->em, tradeLink, input); 
-  return tradeLink;
+  eb->bashCurl("https://api.bitskins.com/account/profile/update_tradelink", this->user->getAPIKey(), "tradelink", Url); 
+  //this->responseDisplayer->displayHttpResponse(this->em, tradeLink, input); 
 }
 
 cpr::Response Profile::updateAccount(std::string input)

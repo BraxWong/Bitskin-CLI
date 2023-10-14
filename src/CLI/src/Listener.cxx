@@ -53,6 +53,10 @@ void Listener::listenCommand()
     {
       this->affiliate->getListHistoricalRewards(input);
     }
+    else if(input.find("-setcode") != std::string::npos)
+    {
+      this->affiliate->setAffiliateCode(input);
+    }
     else 
     {
       std::cout << "Command not recognized. Please try again.\n";

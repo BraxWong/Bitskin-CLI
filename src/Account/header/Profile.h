@@ -4,11 +4,12 @@
 #include "../../CLI/header/UserCredentials.h"
 #include "../../CLI//header/Help.h"
 #include "../../CLI/header/Error.h"
+#include "../../bash/header/ExecuteBash.h"
+#include "../../CLI/header/ResponseDisplayer.h"
 #include <cstdlib>
 #include <stdlib.h>
 #include <string>
 #include <nlohmann/json.hpp>
-#include "../../CLI/header/ResponseDisplayer.h"
 
 class Profile {
 public:
@@ -54,7 +55,7 @@ public:
   ╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯
 */
 
-  cpr::Response updateTradeLink(std::string input);
+  void updateTradeLink(std::string input);
 
 /*╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
   ┃                                                                              ┃

@@ -43,3 +43,16 @@ cpr::Response Affiliate::getListHistoricalRewards(std::string input)
   return response;
 }
 
+void Affiliate::setAffiliateCode(std::string input)
+{
+  ExecuteBash* eb = new ExecuteBash();
+  if(input.find("-h") != std::string::npos)
+  {
+    this->help->showHelp(false, input);
+  }
+  std::string code;
+  std::cout << "Please enter your affiliation code.\n";
+  std::getline(std::cin, code);
+  eb->bashCurl("https://api.bitskins.com/account/affiliate/set_code", this->profile->user->getAPIKey(), "code", code);
+
+}
