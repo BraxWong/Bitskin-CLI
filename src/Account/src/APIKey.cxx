@@ -10,7 +10,6 @@ cpr::Response APIKey::disableAPIKey(std::string input)
     this->help->showHelp(false, input);
   }
   cpr::Response response =  cpr::Post(cpr::Url{"https://api.bitskins.com/account/apikey/disable"}, 
-                                 cpr::Authentication{this->profile->user->getUsername(), this->profile->user->getPassword(), cpr::AuthMode::DIGEST},
                                  cpr::Header{{"x-apikey",this->profile->user->getAPIKey()}},
                                  cpr::Body{});
 

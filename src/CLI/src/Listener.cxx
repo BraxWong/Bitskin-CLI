@@ -49,6 +49,10 @@ void Listener::listenCommand()
     {
       this->affiliate->claimMoney(input);
     }
+    else if(input.find("-historicrewards") != std::string::npos)
+    {
+      this->affiliate->getListHistoricalRewards(input);
+    }
     else 
     {
       std::cout << "Command not recognized. Please try again.\n";

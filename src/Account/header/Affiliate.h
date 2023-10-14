@@ -52,5 +52,7 @@ class Affiliate
 */
 
     cpr::Response claimMoney(std::string input);
+
+    cpr::Response getListHistoricalRewards(std::string input);
 };
 #endif // !AFFILIATE_H
