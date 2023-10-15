@@ -3,6 +3,7 @@
 #include "../../Account/header/Profile.h"
 #include "../../Account/header/Affiliate.h"
 #include "../../Config/header/CurrencyRates.h"
+#include "../../Config/header/FeePlans.h"
 #include <cstdlib>
 #include <stdlib.h>
 #include <string>
@@ -13,6 +14,7 @@ public:
   Profile* profile;
   Affiliate* affiliate;
   CurrencyRates* currencyRates;
+  FeePlans* feePlans;
 /*╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
   ┃                                                                              ┃
   ┃   Function: Listener class constructor. Description: The constructor will    ┃
@@ -29,11 +31,12 @@ public:
                    ╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯
 */
 
-  Listener(Profile* p, Affiliate* a, CurrencyRates* currencyRates)
+  Listener(Profile* p, Affiliate* a, CurrencyRates* currencyRates, FeePlans* feePlans)
   {
     this->profile = p;
     this->affiliate = a;
     this->currencyRates = currencyRates;
+    this->feePlans = feePlans;
   }
 
 /*╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮

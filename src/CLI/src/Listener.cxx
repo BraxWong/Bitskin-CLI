@@ -61,6 +61,10 @@ void Listener::listenCommand()
     {
       this->currencyRates->getCurrencyRates(input);
     }
+    else if(input.find("-feeplans") != std::string::npos)
+    {
+      this->feePlans->getFeePlans(input);
+    }
     else 
     {
       std::cout << "Command not recognized. Please try again.\n";

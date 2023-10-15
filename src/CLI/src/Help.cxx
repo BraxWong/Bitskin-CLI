@@ -67,6 +67,10 @@ bool HELP_H::Help::showHelp(bool fromHelpPage, std::string command)
     {
       std::cout << "When -currencyrates is entered, the user will get fiat and crypto rates on the platform. Fiat rates are used for provisional preview only. All in-platform transactions are calculated in USD. Crypto currencies are used as based rates for depositing and withdrawing.\n";
     }
+    else if(command == "-feeplans -h")
+    {
+      std::cout << "When -feeplans is entered, the user will be presented with Bitskins' available sale fee plans.\n";
+    }
     else if(command == "-q")
     {
       break;

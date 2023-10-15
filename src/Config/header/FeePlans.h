@@ -1,5 +1,5 @@
-#ifndef CURRENCYRATES_H
-#define CURRENCYRATES_H
+#ifndef FEEPLANS_H
+#define FEEPLANS_H
 #include <cpr/cpr.h>
 #include "../../CLI//header/Help.h"
 #include "../../CLI/header/Error.h"
@@ -11,7 +11,7 @@
 #include <string>
 #include <nlohmann/json.hpp>
 
-class CurrencyRates 
+class FeePlans 
 {
   public:
     Profile* profile;
@@ -19,7 +19,7 @@ class CurrencyRates
     ERRORMAP::errormap* em;
     ResponseDisplayer* responseDisplayer;
 
-    CurrencyRates(Profile* profile)
+    FeePlans(Profile* profile)
     {
       this->profile = profile;
       this->help = this->profile->help;
@@ -27,16 +27,19 @@ class CurrencyRates
       this->responseDisplayer = new ResponseDisplayer();
     }
 
+
 /*╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
   ┃                                                                              ┃
-  ┃      Function: getCurrencyRates() Description: This method will get the      ┃
-  ┃    currency rates for different currency. It will then print out the url     ┃
-  ┃      and the http request text. At last, it will return a cpr::Response      ┃
-  ┃     object with the request's information. Return: cpr::Response object.     ┃
+  ┃       Function: getFeePlans() Description: This method will obtain the       ┃
+  ┃       Bitskins' availiable sale fee plans. After the request has been        ┃
+  ┃        fulfilled, the cpr::Response object will be returned. Return:         ┃
+  ┃                            cpr::Response object.                             ┃
   ┃                                                                              ┃
   ╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯
 */
 
-    cpr::Response getCurrencyRates(std::string input);
-}; 
+    cpr::Response getFeePlans(std::string input);
+};
+
 #endif
+
