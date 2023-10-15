@@ -9,6 +9,7 @@ add_library(src
   Account/src/APIKey.cxx
   Account/src/Profile.cxx 
   Account/src/Affiliate.cxx
+  Config/src/CurrencyRates.cxx
 )
 include(FetchContent)
 FetchContent_Declare(cpr GIT_REPOSITORY https://github.com/libcpr/cpr.git

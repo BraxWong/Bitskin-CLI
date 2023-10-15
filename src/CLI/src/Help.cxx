@@ -8,7 +8,7 @@ bool HELP_H::Help::showHelp(bool fromHelpPage, std::string command)
   {
     std::cout << "Help Page:\n";
     std::cout << "Currently this program has 6 commands available.\n";
-    std::cout << "1: -help\n2: -quit\n3: -balance\n4: -session\n5: -tradelink\n6: -updateaccount\n7: -block\n8: -affiliate\n9: -claimmoney\n10: -historicrewards\n11: -setcode\n";
+    std::cout << "1: -help\n2: -quit\n3: -balance\n4: -session\n5: -tradelink\n6: -updateaccount\n7: -block\n8: -affiliate\n9: -claimmoney\n10: -historicrewards\n11: -setcode\n12: -currencyrates\n";
     std::cout << "To obtain for information regarding one specific command, type in the command you want with the argument -h\n";
     std::cout << "For example: -quit -h\n";
     std::cout << "Enter -q to leave the help page.\n";
@@ -62,6 +62,10 @@ bool HELP_H::Help::showHelp(bool fromHelpPage, std::string command)
     else if(command == "-setcode -h")
     {
       std::cout << "When -setcode is entered, the user will be asked to enter their new affiliate code. If the user's current and new affiliate code are the same, an error will be shown saying a unique affiliate code is required. Else, the affiliate code will be stored in Bitskins' database.\n";
+    }
+    else if(command == "-currencyrates -h")
+    {
+      std::cout << "When -currencyrates is entered, the user will get fiat and crypto rates on the platform. Fiat rates are used for provisional preview only. All in-platform transactions are calculated in USD. Crypto currencies are used as based rates for depositing and withdrawing.\n";
     }
     else if(command == "-q")
     {

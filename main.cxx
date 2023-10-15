@@ -1,4 +1,5 @@
 #include "src/Account/header/Affiliate.h"
+#include "src/Config/header/CurrencyRates.h"
 #include "src/CLI/header/MainMenu.h"
 #include "src/Account/header/Profile.h"
 #include "src/CLI/header/Listener.h"
@@ -19,7 +20,8 @@ int main() {
   Profile* profile = new Profile();
   profile->userLogin();
   Affiliate* affiliate = new Affiliate(profile);
-  Listener* listener = new Listener(profile, affiliate);
+  CurrencyRates* currencyRates = new CurrencyRates(profile);
+  Listener* listener = new Listener(profile, affiliate, currencyRates);
   listener->listenCommand();
   MemPlumber::stopAndFreeAllMemory();
   return 0;

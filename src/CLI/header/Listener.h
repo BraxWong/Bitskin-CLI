@@ -2,6 +2,7 @@
 #define LISTENER_H
 #include "../../Account/header/Profile.h"
 #include "../../Account/header/Affiliate.h"
+#include "../../Config/header/CurrencyRates.h"
 #include <cstdlib>
 #include <stdlib.h>
 #include <string>
@@ -11,6 +12,7 @@ class Listener
 public:
   Profile* profile;
   Affiliate* affiliate;
+  CurrencyRates* currencyRates;
 /*╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
   ┃                                                                              ┃
   ┃   Function: Listener class constructor. Description: The constructor will    ┃
@@ -27,10 +29,11 @@ public:
                    ╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯
 */
 
-  Listener(Profile* p, Affiliate* a)
+  Listener(Profile* p, Affiliate* a, CurrencyRates* currencyRates)
   {
     this->profile = p;
     this->affiliate = a;
+    this->currencyRates = currencyRates;
   }
 
 /*╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮

@@ -57,6 +57,10 @@ void Listener::listenCommand()
     {
       this->affiliate->setAffiliateCode(input);
     }
+    else if(input.find("-currencyrates") != std::string::npos)
+    {
+      this->currencyRates->getCurrencyRates(input);
+    }
     else 
     {
       std::cout << "Command not recognized. Please try again.\n";
