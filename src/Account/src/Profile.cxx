@@ -51,9 +51,10 @@ void Profile::updateTradeLink(std::string input)
   std::string Url;
   std::cout << "Please enter your updated trade link.\n";
   std::getline(std::cin, Url);
-  json parsedUrl = {{"tradelink", Url}};
-  eb->bashCurl("https://api.bitskins.com/account/profile/update_tradelink", this->user->getAPIKey(), "tradelink", Url); 
-  //this->responseDisplayer->displayHttpResponse(this->em, tradeLink, input); 
+  std::vector<std::string> keys = {"tradelink"};
+  std::vector<std::string> values = {Url};
+  std::vector<std::string> dataTypes = {"String"};
+  eb->executeBashScript("https://api.bitskins.com/account/profile/update_tradelink", this->user->getAPIKey(), keys,  values, dataTypes);
 }
 
 cpr::Response Profile::updateAccount(std::string input)

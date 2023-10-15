@@ -10,6 +10,7 @@
 #include <stdlib.h>
 #include <string>
 #include <nlohmann/json.hpp>
+#include <vector>
 
 class Profile {
 public:
@@ -82,9 +83,9 @@ public:
 /*╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
   ┃                                                                              ┃
   ┃    Function: userLogin() Description: This method will ask for the user's    ┃
-  ┃    steam username, password, and Bitskins API key. Inputs will be stored     ┃
-  ┃       in a UserCredentials pointer object. At last it will return the        ┃
-  ┃           UserCredentials pointer object. Return: UserCredentials*           ┃
+  ┃     Bitskins API key. Inputs will be stored in a UserCredentials pointer     ┃
+  ┃      object. At last it will return the UserCredentials pointer object.      ┃
+  ┃                           Return: UserCredentials*                           ┃
   ┃                                                                              ┃
   ╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯
 */

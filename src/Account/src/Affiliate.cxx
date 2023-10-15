@@ -30,17 +30,22 @@ cpr::Response Affiliate::claimMoney(std::string input)
   return response;
 }
 
-cpr::Response Affiliate::getListHistoricalRewards(std::string input)
+void Affiliate::getListHistoricalRewards(std::string input)
 {
+  ExecuteBash* eb = new ExecuteBash();
   if(input.find(" -h") != std::string::npos)
   {
     this->help->showHelp(false, input);
   }
-  cpr::Response response = cpr::Post(cpr::Url{"https://api.bitskins.com/account/affiliate/history"},
-                                     cpr::Header{{"x-apikey",this->profile->user->getAPIKey()}},
-                                     cpr::Payload{{"limit", "30"}, {"offset", "0"}});
-  this->responseDisplayer->displayHttpResponse(this->em, response, input);
-  return response;
+  std::string limit, offset;
+  std::cout << "Please enter your limit\n";
+  std::getline(std::cin, limit);
+  std::cout << "Please enter your offset\n";
+  std::getline(std::cin, offset);
+  std::vector<std::string> keys = {"limit","offset"};
+  std::vector<std::string> values = {limit, offset};
+  std::vector<std::string> dataTypes = {"Numbers","Numbers"};
+  eb->executeBashScript("https://api.bitskins.com/account/affiliate/history", this->profile->user->getAPIKey(), keys, values, dataTypes);
 }
 
 void Affiliate::setAffiliateCode(std::string input)
@@ -53,6 +58,8 @@ void Affiliate::setAffiliateCode(std::string input)
   std::string code;
   std::cout << "Please enter your affiliation code.\n";
   std::getline(std::cin, code);
-  eb->bashCurl("https://api.bitskins.com/account/affiliate/set_code", this->profile->user->getAPIKey(), "code", code);
-
+  std::vector<std::string> keys = {"code"};
+  std::vector<std::string> values = {code};
+  std::vector<std::string> dataTypes = {"String"};
+  eb->executeBashScript("https://api.bitskins.com/account/affiliate/set_code", this->profile->user->getAPIKey(), keys, values, dataTypes);
 }
