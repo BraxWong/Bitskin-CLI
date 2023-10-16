@@ -65,6 +65,10 @@ void Listener::listenCommand()
     {
       this->feePlans->getFeePlans(input);
     }
+    else if(input.find("-platformstatus") != std::string::npos)
+    {
+      this->platformStatus->getPlatformStatus(input);
+    }
     else 
     {
       std::cout << "Command not recognized. Please try again.\n";

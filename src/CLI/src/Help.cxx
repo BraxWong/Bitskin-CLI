@@ -8,7 +8,7 @@ bool HELP_H::Help::showHelp(bool fromHelpPage, std::string command)
   {
     std::cout << "Help Page:\n";
     std::cout << "Currently this program has 6 commands available.\n";
-    std::cout << "1: -help\n2: -quit\n3: -balance\n4: -session\n5: -tradelink\n6: -updateaccount\n7: -block\n8: -affiliate\n9: -claimmoney\n10: -historicrewards\n11: -setcode\n12: -currencyrates\n";
+    std::cout << "1: -help\n2: -quit\n3: -balance\n4: -session\n5: -tradelink\n6: -updateaccount\n7: -block\n8: -affiliate\n9: -claimmoney\n10: -historicrewards\n11: -setcode\n12: -currencyrates\n13: -platformstatus\n";
     std::cout << "To obtain for information regarding one specific command, type in the command you want with the argument -h\n";
     std::cout << "For example: -quit -h\n";
     std::cout << "Enter -q to leave the help page.\n";
@@ -70,6 +70,10 @@ bool HELP_H::Help::showHelp(bool fromHelpPage, std::string command)
     else if(command == "-feeplans -h")
     {
       std::cout << "When -feeplans is entered, the user will be presented with Bitskins' available sale fee plans.\n";
+    }
+    else if(command == "-platformstatus -h")
+    {
+      std::cout << "When -platformstatus is entered, the user will be presented with Bitskins' service status. Including buy_order, instant_sell, and platform status.\n";
     }
     else if(command == "-q")
     {

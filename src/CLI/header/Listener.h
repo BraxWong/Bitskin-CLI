@@ -4,6 +4,7 @@
 #include "../../Account/header/Affiliate.h"
 #include "../../Config/header/CurrencyRates.h"
 #include "../../Config/header/FeePlans.h"
+#include "../../Config/header/PlatformStatus.h"
 #include <cstdlib>
 #include <stdlib.h>
 #include <string>
@@ -15,6 +16,8 @@ public:
   Affiliate* affiliate;
   CurrencyRates* currencyRates;
   FeePlans* feePlans;
+  PlatformStatus* platformStatus;
+
 /*╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
   ┃                                                                              ┃
   ┃   Function: Listener class constructor. Description: The constructor will    ┃
@@ -23,20 +26,13 @@ public:
   ╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯
 */
 
-
-/*                 ╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
-                   ┃                                           ┃
-                   ┃ TODO:: Include Affiliation object as well ┃
-                   ┃                                           ┃
-                   ╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯
-*/
-
-  Listener(Profile* p, Affiliate* a, CurrencyRates* currencyRates, FeePlans* feePlans)
+  Listener(Profile* p, Affiliate* a, CurrencyRates* currencyRates, FeePlans* feePlans, PlatformStatus* platformStatus)
   {
     this->profile = p;
     this->affiliate = a;
     this->currencyRates = currencyRates;
     this->feePlans = feePlans;
+    this->platformStatus = platformStatus;
   }
 
 /*╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
