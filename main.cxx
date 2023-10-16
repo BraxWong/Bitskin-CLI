@@ -1,6 +1,7 @@
 #include "src/Account/header/Affiliate.h"
 #include "src/Config/header/CurrencyRates.h"
 #include "src/Config/header/FeePlans.h"
+#include "src/Config/header/PlatformStatus.h"
 #include "src/CLI/header/MainMenu.h"
 #include "src/Account/header/Profile.h"
 #include "src/CLI/header/Listener.h"
@@ -14,6 +15,14 @@
 #include "memplumber.h"
 
 
+
+/*       ╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
+         ┃                                                              ┃
+         ┃ TODO: Create a class that includes all the rest-api classes. ┃
+         ┃                                                              ┃
+         ╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯
+*/
+
 int main() {
   MemPlumber::start();
   CLI *cli = new CLI();
@@ -23,7 +32,8 @@ int main() {
   Affiliate* affiliate = new Affiliate(profile);
   CurrencyRates* currencyRates = new CurrencyRates(profile);
   FeePlans* feePlans = new FeePlans(profile);
-  Listener* listener = new Listener(profile, affiliate, currencyRates, feePlans);
+  PlatformStatus* platformStatus = new PlatformStatus(profile);
+  Listener* listener = new Listener(profile, affiliate, currencyRates, feePlans, platformStatus);
   listener->listenCommand();
   MemPlumber::stopAndFreeAllMemory();
   return 0;
