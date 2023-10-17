@@ -2,6 +2,7 @@
 #include "src/Config/header/CurrencyRates.h"
 #include "src/Config/header/FeePlans.h"
 #include "src/Config/header/PlatformStatus.h"
+#include "src/Market/header/Pricing.h"
 #include "src/CLI/header/MainMenu.h"
 #include "src/Account/header/Profile.h"
 #include "src/CLI/header/Listener.h"
@@ -33,7 +34,8 @@ int main() {
   CurrencyRates* currencyRates = new CurrencyRates(profile);
   FeePlans* feePlans = new FeePlans(profile);
   PlatformStatus* platformStatus = new PlatformStatus(profile);
-  Listener* listener = new Listener(profile, affiliate, currencyRates, feePlans, platformStatus);
+  Pricing* pricing = new Pricing(profile);
+  Listener* listener = new Listener(profile, affiliate, currencyRates, feePlans, platformStatus, pricing);
   listener->listenCommand();
   MemPlumber::stopAndFreeAllMemory();
   return 0;
