@@ -1,4 +1,13 @@
 #include <string>
+
+
+/*              ╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
+                ┃                                                 ┃
+                ┃ ENUM: APPID Description: AppID for applications ┃
+                ┃                                                 ┃
+                ╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯
+*/
+
 enum APPID
 {
   cs2 = 730,
@@ -6,6 +15,15 @@ enum APPID
   tf2 = 440,
   rust = 252490
 };
+
+
+/*╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
+  ┃                                                                              ┃
+  ┃      ENUM: INVENTORYSTATUS Description: Provides insight to the user's       ┃
+  ┃                          bitskins inventory status                           ┃
+  ┃                                                                              ┃
+  ╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯
+*/
 
 enum INVENTORYSTATUS
 {
@@ -23,6 +41,25 @@ enum INVENTORYSTATUS
   instant_sell = 7
 };
 
+/*╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
+  ┃                                                                              ┃
+  ┃    Function: getAppIDString() Description: Will return the                   ┃
+  ┃                      string according to the ENUM value                      ┃
+  ┃                                                                              ┃
+  ╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯
+*/
+
+
 std::string getAppIDString(APPID appID);
+
+/*╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
+  ┃                                                                              ┃
+  ┃    Function: getInventoryStatusString() Description: Will return the         ┃
+  ┃                      string according to the ENUM value                      ┃
+  ┃                                                                              ┃
+  ╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯
+*/
+
+
 std::string getInventoryStatusString(INVENTORYSTATUS inventoryStatus);
 

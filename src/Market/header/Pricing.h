@@ -1,54 +1,55 @@
-#ifndef LISTENER_H
-#define LISTENER_H
+#ifndef PRICING_H
+#define PRICING_H
+#include <cpr/cpr.h>
+#include "../../CLI//header/Help.h"
+#include "../../CLI/header/Error.h"
+#include "../../bash/header/ExecuteBash.h"
+#include "../../CLI/header/ResponseDisplayer.h"
 #include "../../Account/header/Profile.h"
-#include "../../Account/header/Affiliate.h"
-#include "../../Config/header/CurrencyRates.h"
-#include "../../Config/header/FeePlans.h"
-#include "../../Config/header/PlatformStatus.h"
-#include "../../Market/header/Pricing.h"
 #include <cstdlib>
 #include <stdlib.h>
 #include <string>
+#include <nlohmann/json.hpp>
+#include <vector>
 
-class Listener
+class Pricing 
 {
-public:
-  Profile* profile;
-  Affiliate* affiliate;
-  CurrencyRates* currencyRates;
-  FeePlans* feePlans;
-  PlatformStatus* platformStatus;
-  Pricing* pricing;
+  public:
+    Profile* profile;
+    Help* help;
+    ERRORMAP::errormap* em;
+    ResponseDisplayer* responseDisplayer;
+    ExecuteBash* executeBash; 
+    Pricing(Profile* profile)
+    {
+      this->profile = profile; 
+      this->help = this->profile->help;
+      this->em = this->profile->em;
+      this->responseDisplayer = new ResponseDisplayer();
+      this->executeBash = new ExecuteBash();
+    }
+
 
 /*╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
   ┃                                                                              ┃
-  ┃   Function: Listener class constructor. Description: The constructor will    ┃
-  ┃       store a copy of a Profile object to the current Listener object.       ┃
+  ┃    Function: getSales() Description: This method will retrieve the latest    ┃
+  ┃                          sales for a certain item.                           ┃
   ┃                                                                              ┃
   ╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯
 */
 
-  Listener(Profile* p, Affiliate* a, CurrencyRates* currencyRates, FeePlans* feePlans, PlatformStatus* platformStatus, Pricing* pricing)
-  {
-    this->profile = p;
-    this->affiliate = a;
-    this->currencyRates = currencyRates;
-    this->feePlans = feePlans;
-    this->platformStatus = platformStatus;
-    this->pricing = pricing;
-  }
+    void getSales(std::string input);
+
 
 /*╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
   ┃                                                                              ┃
-  ┃     Function: listenCommand() Description: This method will perpeutally      ┃
-  ┃      listen to user's command until a -help command is received. Please      ┃
-  ┃                 refer to Listener.cxx for more information.                  ┃
+  ┃     Function: getPricingSummary() Description: This method will retrieve     ┃
+  ┃       the sales stats for a certain item, it can be filtered by date.        ┃
   ┃                                                                              ┃
   ╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯
 */
 
-  void listenCommand();
-
-private:
+    void getPricingSummary(std::string input);
 };
-#endif // !LISTENER_H
+
+#endif

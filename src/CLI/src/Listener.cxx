@@ -69,6 +69,14 @@ void Listener::listenCommand()
     {
       this->platformStatus->getPlatformStatus(input);
     }
+    else if(input.find("-sales") != std::string::npos)
+    {
+      this->pricing->getSales(input);
+    }
+    else if(input.find("-pricingsummary") != std::string::npos)
+    {
+      this->pricing->getPricingSummary(input);
+    }
     else 
     {
       std::cout << "Command not recognized. Please try again.\n";
