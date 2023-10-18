@@ -14,6 +14,7 @@ add_library(src
   Config/src/PlatformStatus.cxx
   Market/src/MarketEnum.cxx
   Market/src/Pricing.cxx
+  Market/src/MarketItems.cxx
 )
 include(FetchContent)
 FetchContent_Declare(cpr GIT_REPOSITORY https://github.com/libcpr/cpr.git

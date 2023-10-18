@@ -77,6 +77,10 @@ void Listener::listenCommand()
     {
       this->pricing->getPricingSummary(input);
     }
+    else if(input.find("-userstore") != std::string::npos)
+    {
+      this->marketItems->userStores(input);
+    }
     else 
     {
       std::cout << "Command not recognized. Please try again.\n";
