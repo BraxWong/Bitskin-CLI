@@ -1,4 +1,3 @@
-#include "memplumber.h"
 #include "src/CLI/header/Listener.h"
 #include "src/CLI/header/MainMenu.h"
 
@@ -11,7 +10,6 @@
 */
 
 int main() {
-  MemPlumber::start();
   CLI *cli = new CLI();
   cli->showCLIGreetings();
   Profile* profile = new Profile();
@@ -25,6 +23,9 @@ int main() {
   BuyItem* buyItem = new BuyItem(profile);
   Listener* listener = new Listener(profile, affiliate, currencyRates, feePlans, platformStatus, pricing, marketItems, buyItem);
   listener->listenCommand();
-  MemPlumber::stopAndFreeAllMemory();
+  delete cli;
+  delete profile;
+  delete listener;
+  delete buyItem;
   return 0;
 }

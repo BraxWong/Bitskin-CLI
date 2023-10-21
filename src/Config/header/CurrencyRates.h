@@ -27,6 +27,11 @@ class CurrencyRates
       this->responseDisplayer = new ResponseDisplayer();
     }
 
+    ~CurrencyRates()
+    {
+      delete this->responseDisplayer;
+    }
+
 /*╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
   ┃                                                                              ┃
   ┃      Function: getCurrencyRates() Description: This method will get the      ┃

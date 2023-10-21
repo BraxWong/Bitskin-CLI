@@ -18,6 +18,7 @@ class Affiliate
     Help* help;
     ERRORMAP::errormap* em;
     ResponseDisplayer* responseDisplayer;
+    ExecuteBash* executeBash;
      
     Affiliate(Profile* profile)
     {
@@ -25,8 +26,14 @@ class Affiliate
       this->help = this->profile->help;
       this->em = this->profile->em;
       this->responseDisplayer = new ResponseDisplayer();
+      this->executeBash = new ExecuteBash();
     }
 
+    ~Affiliate()
+    {
+      delete this->responseDisplayer;
+      delete this->executeBash;
+    }
   /*╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
     ┃                                                                              ┃
     ┃      Function: getAffiliateInfo() Description: This method will get the      ┃

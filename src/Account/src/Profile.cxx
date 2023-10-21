@@ -43,7 +43,6 @@ cpr::Response Profile::getAccountBalance(std::string input)
 
 void Profile::updateTradeLink(std::string input)
 {
-  ExecuteBash* eb = new ExecuteBash();
   if(input.find("-h") != std::string::npos)
   {
     this->help->showHelp(false, "-tradelink -h");
@@ -54,7 +53,7 @@ void Profile::updateTradeLink(std::string input)
   std::vector<std::string> keys = {"tradelink"};
   std::vector<std::string> values = {Url};
   std::vector<std::string> dataTypes = {"String"};
-  eb->executeBashScript("https://api.bitskins.com/account/profile/update_tradelink", this->user->getAPIKey(), keys,  values, dataTypes);
+  this->executeBash->executeBashScript("https://api.bitskins.com/account/profile/update_tradelink", this->user->getAPIKey(), keys,  values, dataTypes);
 }
 
 cpr::Response Profile::updateAccount(std::string input)

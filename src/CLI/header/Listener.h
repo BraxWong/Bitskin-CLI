@@ -8,7 +8,7 @@
 #include "../../Market/header/Pricing.h"
 #include "../../Market/header/MarketItems.h"
 #include "../../Market/header/BuyItem.h"
-#include "CMDStack.h"
+#include "CMDVector.h"
 #include <cstdlib>
 #include <stdlib.h>
 #include <string>
@@ -44,6 +44,17 @@ public:
     this->marketItems = marketItems;
     this->buyItem = buyItem;
   }
+
+    ~Listener()
+    {
+      delete this->affiliate;
+      delete this->cmdStack;
+      delete this->marketItems;
+      delete this->pricing;
+      delete this->platformStatus;
+      delete this->feePlans;
+      delete this->currencyRates;
+    }
 
 /*╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
   ┃                                                                              ┃

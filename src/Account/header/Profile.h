@@ -18,11 +18,21 @@ public:
   Help* help;
   ERRORMAP::errormap* em;
   ResponseDisplayer* responseDisplayer;
+  ExecuteBash* executeBash;
   Profile()
   {
     this->responseDisplayer = new ResponseDisplayer();
+    this->executeBash = new ExecuteBash();
   }
   
+  ~Profile()
+  {
+    delete user;
+    delete help;
+    delete em;
+    delete responseDisplayer;
+    delete executeBash;
+  }
 /*╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
   ┃                                                                              ┃
   ┃     Function: getCurrentSession() Description: This method will get the      ┃

@@ -29,6 +29,11 @@ class BuyItem
       this->executeBash = new ExecuteBash();
     }
   
+    ~BuyItem()
+    {
+      delete this->responseDisplayer;
+      delete this->executeBash;
+    }
   void buySingleItem(std::string input);
 };
 

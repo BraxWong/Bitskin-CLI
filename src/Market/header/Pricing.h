@@ -29,7 +29,11 @@ class Pricing
       this->executeBash = new ExecuteBash();
     }
 
-
+    ~Pricing()
+    {
+      delete this->responseDisplayer;
+      delete this->executeBash;
+    }
 /*╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
   ┃                                                                              ┃
   ┃    Function: getSales() Description: This method will retrieve the latest    ┃

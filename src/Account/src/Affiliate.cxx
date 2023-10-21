@@ -32,7 +32,6 @@ cpr::Response Affiliate::claimMoney(std::string input)
 
 void Affiliate::getListHistoricalRewards(std::string input)
 {
-  ExecuteBash* eb = new ExecuteBash();
   if(input.find(" -h") != std::string::npos)
   {
     this->help->showHelp(false, input);
@@ -45,12 +44,11 @@ void Affiliate::getListHistoricalRewards(std::string input)
   std::vector<std::string> keys = {"limit","offset"};
   std::vector<std::string> values = {limit, offset};
   std::vector<std::string> dataTypes = {"Numbers","Numbers"};
-  eb->executeBashScript("https://api.bitskins.com/account/affiliate/history", this->profile->user->getAPIKey(), keys, values, dataTypes);
+  this->executeBash->executeBashScript("https://api.bitskins.com/account/affiliate/history", this->profile->user->getAPIKey(), keys, values, dataTypes);
 }
 
 void Affiliate::setAffiliateCode(std::string input)
 {
-  ExecuteBash* eb = new ExecuteBash();
   if(input.find("-h") != std::string::npos)
   {
     this->help->showHelp(false, input);
@@ -61,5 +59,5 @@ void Affiliate::setAffiliateCode(std::string input)
   std::vector<std::string> keys = {"code"};
   std::vector<std::string> values = {code};
   std::vector<std::string> dataTypes = {"String"};
-  eb->executeBashScript("https://api.bitskins.com/account/affiliate/set_code", this->profile->user->getAPIKey(), keys, values, dataTypes);
+  this->executeBash->executeBashScript("https://api.bitskins.com/account/affiliate/set_code", this->profile->user->getAPIKey(), keys, values, dataTypes);
 }

@@ -5,7 +5,7 @@ add_library(src
   CLI/src/Listener.cxx
   CLI/src/Error.cxx
   CLI/src/ResponseDisplayer.cxx
-  CLI/src/CMDStack.cxx
+  CLI/src/CMDVector.cxx
   bash/src/ExecuteBash.cxx
   Account/src/APIKey.cxx
   Account/src/Profile.cxx 

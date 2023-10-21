@@ -27,7 +27,10 @@ class PlatformStatus
       this->responseDisplayer = new ResponseDisplayer();
     }
     
-
+    ~PlatformStatus()
+    {
+      delete this->responseDisplayer;
+    }
 /*╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
   ┃                                                                              ┃
   ┃      Function: getPlatformStatus() Description: This method will return      ┃

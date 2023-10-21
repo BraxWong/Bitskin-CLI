@@ -26,7 +26,10 @@ class APIKey
       this->responseDisplayer = new ResponseDisplayer();
     }
 
-
+    ~APIKey()
+    {
+      delete this->responseDisplayer;
+    }
 /*╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
   ┃                                                                              ┃
   ┃     Function: disableAPIKey() Description: This function takes a string      ┃

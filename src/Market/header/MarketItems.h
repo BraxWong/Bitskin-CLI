@@ -29,6 +29,11 @@ class MarketItems
       this->executeBash = new ExecuteBash();
     }
 
+    ~MarketItems()
+    {
+      delete this->responseDisplayer;
+      delete this->executeBash;
+    }
 /*╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
   ┃                                                                              ┃
   ┃    Function: userStores() Description: This method will get the amount of    ┃

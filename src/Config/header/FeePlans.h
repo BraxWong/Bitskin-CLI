@@ -27,6 +27,10 @@ class FeePlans
       this->responseDisplayer = new ResponseDisplayer();
     }
 
+    ~FeePlans()
+    {
+      delete this->responseDisplayer;
+    }
 
 /*╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
   ┃                                                                              ┃
