@@ -22,7 +22,8 @@ int main() {
   PlatformStatus* platformStatus = new PlatformStatus(profile);
   Pricing* pricing = new Pricing(profile);
   MarketItems* marketItems = new MarketItems(profile);
-  Listener* listener = new Listener(profile, affiliate, currencyRates, feePlans, platformStatus, pricing, marketItems);
+  BuyItem* buyItem = new BuyItem(profile);
+  Listener* listener = new Listener(profile, affiliate, currencyRates, feePlans, platformStatus, pricing, marketItems, buyItem);
   listener->listenCommand();
   MemPlumber::stopAndFreeAllMemory();
   return 0;

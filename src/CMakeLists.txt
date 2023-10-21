@@ -5,6 +5,7 @@ add_library(src
   CLI/src/Listener.cxx
   CLI/src/Error.cxx
   CLI/src/ResponseDisplayer.cxx
+  CLI/src/CMDStack.cxx
   bash/src/ExecuteBash.cxx
   Account/src/APIKey.cxx
   Account/src/Profile.cxx 
@@ -15,6 +16,7 @@ add_library(src
   Market/src/MarketEnum.cxx
   Market/src/Pricing.cxx
   Market/src/MarketItems.cxx
+  Market/src/BuyItem.cxx
 )
 include(FetchContent)
 FetchContent_Declare(cpr GIT_REPOSITORY https://github.com/libcpr/cpr.git

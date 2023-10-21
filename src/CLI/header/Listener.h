@@ -7,6 +7,8 @@
 #include "../../Config/header/PlatformStatus.h"
 #include "../../Market/header/Pricing.h"
 #include "../../Market/header/MarketItems.h"
+#include "../../Market/header/BuyItem.h"
+#include "CMDStack.h"
 #include <cstdlib>
 #include <stdlib.h>
 #include <string>
@@ -21,6 +23,8 @@ public:
   PlatformStatus* platformStatus;
   Pricing* pricing;
   MarketItems* marketItems;
+  BuyItem* buyItem;
+  CMDStack* cmdStack = new CMDStack();
 /*╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
   ┃                                                                              ┃
   ┃   Function: Listener class constructor. Description: The constructor will    ┃
@@ -29,7 +33,7 @@ public:
   ╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯
 */
 
-    Listener(Profile* p, Affiliate* a, CurrencyRates* currencyRates, FeePlans* feePlans, PlatformStatus* platformStatus, Pricing* pricing, MarketItems* marketItems)
+    Listener(Profile* p, Affiliate* a, CurrencyRates* currencyRates, FeePlans* feePlans, PlatformStatus* platformStatus, Pricing* pricing, MarketItems* marketItems, BuyItem* buyItem)
   {
     this->profile = p;
     this->affiliate = a;
@@ -38,6 +42,7 @@ public:
     this->platformStatus = platformStatus;
     this->pricing = pricing;
     this->marketItems = marketItems;
+    this->buyItem = buyItem;
   }
 
 /*╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮

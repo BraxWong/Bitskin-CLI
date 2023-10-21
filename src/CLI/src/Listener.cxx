@@ -81,6 +81,10 @@ void Listener::listenCommand()
     {
       this->marketItems->userStores(input);
     }
+    else if(input.find("-buysingle") != std::string::npos)
+    {
+      this->buyItem->buySingleItem(input);
+    }
     else 
     {
       std::cout << "Command not recognized. Please try again.\n";
