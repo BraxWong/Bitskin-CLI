@@ -34,6 +34,16 @@ class BuyItem
       delete this->responseDisplayer;
       delete this->executeBash;
     }
+
+
+/*╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
+  ┃                                                                              ┃
+  ┃      Function: buySingleItem() Description: This method allows users to      ┃
+  ┃                  purchase a single item on Bitskins market.                  ┃
+  ┃                                                                              ┃
+  ╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯
+*/
+
   void buySingleItem(std::string input);
 };
 

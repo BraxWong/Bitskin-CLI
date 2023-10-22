@@ -62,6 +62,15 @@ enum Global_Platform_Status
   active = 1
 };
 
+
+/*╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
+  ┃                                                                              ┃
+  ┃   Function: getGlobalPlatformStatusString() Description: This method will    ┃
+  ┃               return Bitskins' global platform status string.                ┃
+  ┃                                                                              ┃
+  ╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯
+*/
+
 std::string getGlobalPlatformStatusString(Global_Platform_Status gps);
 
 #endif
