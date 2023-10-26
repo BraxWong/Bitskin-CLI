@@ -13,8 +13,6 @@ bool checkErrorMap(std::string username, std::string password, std::string APIKe
   Profile* profile = new Profile();
   UserCredentials* uc = new UserCredentials();
   profile->em = new ERRORMAP::errormap();
-  uc->setUsername(username);
-  uc->setPassword(password);
   uc->setAPIKey(APIKey);
   profile->user = uc;
   cpr::Response response = profile->getCurrentSession("-session");

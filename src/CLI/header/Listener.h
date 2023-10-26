@@ -8,7 +8,6 @@
 #include "../../Market/header/Pricing.h"
 #include "../../Market/header/MarketItems.h"
 #include "../../Market/header/BuyItem.h"
-#include "CMDVector.h"
 #include <cstdlib>
 #include <stdlib.h>
 #include <string>
@@ -24,7 +23,6 @@ public:
   Pricing* pricing;
   MarketItems* marketItems;
   BuyItem* buyItem;
-  CMDStack* cmdStack = new CMDStack();
 /*╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
   ┃                                                                              ┃
   ┃   Function: Listener class constructor. Description: The constructor will    ┃
@@ -48,7 +46,6 @@ public:
     ~Listener()
     {
       delete this->affiliate;
-      delete this->cmdStack;
       delete this->marketItems;
       delete this->pricing;
       delete this->platformStatus;
