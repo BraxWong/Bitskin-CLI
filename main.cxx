@@ -21,11 +21,13 @@ int main() {
   Pricing* pricing = new Pricing(profile);
   MarketItems* marketItems = new MarketItems(profile);
   BuyItem* buyItem = new BuyItem(profile);
-  Listener* listener = new Listener(profile, affiliate, currencyRates, feePlans, platformStatus, pricing, marketItems, buyItem);
+  SteamInventory* steamInventory = new SteamInventory(profile);
+  Listener* listener = new Listener(profile, affiliate, currencyRates, feePlans, platformStatus, pricing, marketItems, buyItem, steamInventory);
   listener->listenCommand();
   delete cli;
   delete profile;
   delete listener;
   delete buyItem;
+  delete steamInventory;
   return 0;
 }

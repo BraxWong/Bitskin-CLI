@@ -16,6 +16,7 @@ add_library(src
   Market/src/Pricing.cxx
   Market/src/MarketItems.cxx
   Market/src/BuyItem.cxx
+  Steam/src/SteamInventory.cxx
 )
 include(FetchContent)
 FetchContent_Declare(cpr GIT_REPOSITORY https://github.com/libcpr/cpr.git
