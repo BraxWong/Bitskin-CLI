@@ -89,6 +89,10 @@ void Listener::listenCommand()
     {
       this->steamInventory->getSteamInventory(input);
     }
+    else if(input.find("-steamtrades") != std::string::npos)
+    {
+      this->steamTrades->getSteamTrades(input);
+    }
     else 
     {
       std::cout << "Command not recognized. Please try again.\n";
