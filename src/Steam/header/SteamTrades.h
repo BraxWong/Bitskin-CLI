@@ -36,6 +36,8 @@ class SteamTrades
     }
     
     bool getSteamTrades(std::string input);
+
+    bool getActiveSteamTrades(std::string input);
 };
 
 #endif
