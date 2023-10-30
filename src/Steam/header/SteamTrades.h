@@ -38,6 +38,8 @@ class SteamTrades
     bool getSteamTrades(std::string input);
 
     bool getActiveSteamTrades(std::string input);
+
+    cpr::Response getSteamTradeHash(std::string input);
 };
 
 #endif

@@ -97,6 +97,10 @@ void Listener::listenCommand()
     {
       this->steamTrades->getActiveSteamTrades(input);
     }
+    else if(input.find("-hashtrades") != std::string::npos)
+    {
+      this->steamTrades->getSteamTradeHash(input);
+    }
     else 
     {
       std::cout << "Command not recognized. Please try again.\n";

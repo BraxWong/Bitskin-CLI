@@ -42,3 +42,18 @@ bool SteamTrades::getActiveSteamTrades(std::string input)
   return true;
 }
 
+cpr::Response SteamTrades::getSteamTradeHash(std::string input)
+{
+  if(input.find("-h ") != std::string::npos)
+  {
+    this->help->showHelp(false, input);
+  }
+
+  cpr::Response session = cpr::Get(cpr::Url{"https://api.bitskins.com/trade/active_hash"},  
+                                   cpr::Header{{"x-apikey",this->profile->user->getAPIKey()}});
+
+  this->responseDisplayer->displayHttpResponse(this->em, session, input); 
+
+  return session;
+}
+

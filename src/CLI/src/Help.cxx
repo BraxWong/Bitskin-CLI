@@ -95,6 +95,10 @@ bool HELP_H::Help::showHelp(bool fromHelpPage, std::string command)
     {
       std::cout << "When -activetrades is entered, the user will be presented a list of active steam trades for that particular game.\n";
     }
+    else if(command == "-hashtrades -h")
+    {
+      std::cout << "When -hashtrades is entered, the user will be presented a list of hashes of steam active trades.\n";
+    }
     else if(command == "-q")
     {
       break;
