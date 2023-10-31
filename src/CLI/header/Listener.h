@@ -10,6 +10,7 @@
 #include "../../Market/header/BuyItem.h"
 #include "../../Steam/header/SteamInventory.h"
 #include "../../Steam/header/SteamTrades.h"
+#include "../../Wallet/header/WalletStats.h"
 #include <cstdlib>
 #include <stdlib.h>
 #include <string>
@@ -27,6 +28,7 @@ public:
   BuyItem* buyItem;
   SteamInventory* steamInventory;
   SteamTrades* steamTrades;
+  WalletStats* walletStats;
 
 /*╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
   ┃                                                                              ┃
@@ -36,7 +38,7 @@ public:
   ╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯
 */
 
-    Listener(Profile* p, Affiliate* a, CurrencyRates* currencyRates, FeePlans* feePlans, PlatformStatus* platformStatus, Pricing* pricing, MarketItems* marketItems, BuyItem* buyItem, SteamInventory* steamInventory, SteamTrades* steamTrades)
+    Listener(Profile* p, Affiliate* a, CurrencyRates* currencyRates, FeePlans* feePlans, PlatformStatus* platformStatus, Pricing* pricing, MarketItems* marketItems, BuyItem* buyItem, SteamInventory* steamInventory, SteamTrades* steamTrades, WalletStats* walletStats)
   {
     this->profile = p;
     this->affiliate = a;
@@ -48,6 +50,7 @@ public:
     this->buyItem = buyItem;
     this->steamInventory = steamInventory;
     this->steamTrades = steamTrades;
+    this->walletStats = walletStats;
   }
 
     ~Listener()
@@ -59,6 +62,7 @@ public:
       delete this->feePlans;
       delete this->currencyRates;
       delete this->steamTrades;
+      delete this->walletStats;
     }
 
 /*╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮

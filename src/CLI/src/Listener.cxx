@@ -101,6 +101,10 @@ void Listener::listenCommand()
     {
       this->steamTrades->getSteamTradeHash(input);
     }
+    else if(input.find("-walletstats") != std::string::npos)
+    {
+      this->walletStats->getWalletStats(input);
+    }
     else 
     {
       std::cout << "Command not recognized. Please try again.\n";
