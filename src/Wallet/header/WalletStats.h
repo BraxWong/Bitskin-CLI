@@ -47,6 +47,15 @@ class WalletStats
 
     cpr::Response getWalletStats(std::string input);
 
+
+/*╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
+  ┃                                                                              ┃
+  ┃    Function: getKYCLimits() Description: This method will get the user's     ┃
+  ┃                             Bitskin KYC Limits.                              ┃
+  ┃                                                                              ┃
+  ╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯
+*/
+
     cpr::Response getKYCLimits(std::string input);
 };
 

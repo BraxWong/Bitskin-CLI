@@ -105,6 +105,10 @@ void Listener::listenCommand()
     {
       this->walletStats->getWalletStats(input);
     }
+    else if(input.find("-kyclimits") != std::string::npos)
+    {
+      this->walletStats->getKYCLimits(input);
+    }
     else 
     {
       std::cout << "Command not recognized. Please try again.\n";
