@@ -24,7 +24,8 @@ int main() {
   SteamInventory* steamInventory = new SteamInventory(profile);
   SteamTrades* steamTrades = new SteamTrades(profile);
   WalletStats* walletStats = new WalletStats(profile);
-  Listener* listener = new Listener(profile, affiliate, currencyRates, feePlans, platformStatus, pricing, marketItems, buyItem, steamInventory, steamTrades, walletStats);
+  WalletReports* walletReports = new WalletReports(profile);
+  Listener* listener = new Listener(profile, affiliate, currencyRates, feePlans, platformStatus, pricing, marketItems, buyItem, steamInventory, steamTrades, walletStats, walletReports);
   listener->listenCommand();
   delete cli;
   delete profile;

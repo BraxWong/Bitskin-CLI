@@ -19,6 +19,7 @@ add_library(src
   Steam/src/SteamInventory.cxx
   Steam/src/SteamTrades.cxx
   Wallet/src/WalletStats.cxx
+  Wallet/src/WalletReports.cxx
 )
 include(FetchContent)
 FetchContent_Declare(cpr GIT_REPOSITORY https://github.com/libcpr/cpr.git
