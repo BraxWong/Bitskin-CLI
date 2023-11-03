@@ -8,7 +8,7 @@ bool HELP_H::Help::showHelp(bool fromHelpPage, std::string command)
   {
     std::cout << "Help Page:\n";
     std::cout << "Currently this program has 6 commands available.\n";
-    std::cout << "1: -help\n2: -quit\n3: -balance\n4: -session\n5: -tradelink\n6: -updateaccount\n7: -block\n8: -affiliate\n9: -claimmoney\n10: -historicrewards\n11: -setcode\n12: -currencyrates\n13: -platformstatus\n14: -sales\n15: -pricingsummary\n16: -steaminventory\n17: -steamtrades\n18: -activetrades\n19: -walletstats\n20: -kyclimits\n21: -walletreports\n";
+    std::cout << "1: -help\n2: -quit\n3: -balance\n4: -session\n5: -tradelink\n6: -updateaccount\n7: -block\n8: -affiliate\n9: -claimmoney\n10: -historicrewards\n11: -setcode\n12: -currencyrates\n13: -platformstatus\n14: -sales\n15: -pricingsummary\n16: -steaminventory\n17: -steamtrades\n18: -activetrades\n19: -walletstats\n20: -kyclimits\n21: -walletreports\n22: -generatewalletreports\n";
     std::cout << "To obtain for information regarding one specific command, type in the command you want with the argument -h\n";
     std::cout << "For example: -quit -h\n";
     std::cout << "Enter -q to leave the help page.\n";
@@ -110,6 +110,10 @@ bool HELP_H::Help::showHelp(bool fromHelpPage, std::string command)
     else if(command == "-walletreports -h")
     {
       std::cout << "When -walletreports is entered, users will be presented with their Bitskins' wallet reports.\n";
+    }
+    else if(command == "-generatewalletreports -h")
+    {
+      std::cout << "When -generatewalletreports is entered, users will be presented with their Bitskins' wallet reports of a certain date.\n";
     }
     else if(command == "-q")
     {

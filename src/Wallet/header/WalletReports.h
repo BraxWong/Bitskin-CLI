@@ -36,7 +36,9 @@ class WalletReports
       delete this->executeBash;
     }
 
-     bool getWalletReports(std::string input);
+    bool getWalletReports(std::string input);
+
+    bool generateWalletReports(std::string input);
 
 };
 

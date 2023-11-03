@@ -113,6 +113,10 @@ void Listener::listenCommand()
     {
       this->walletReports->getWalletReports(input);
     }
+    else if(input.find("-generatewalletreports") != std::string::npos)
+    {
+      this->walletReports->generateWalletReports(input);
+    }
     else 
     {
       std::cout << "Command not recognized. Please try again.\n";

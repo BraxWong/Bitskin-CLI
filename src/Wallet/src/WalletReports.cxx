@@ -23,3 +23,24 @@ bool WalletReports::getWalletReports(std::string input)
 
 }
 
+
+bool WalletReports::generateWalletReports(std::string::input)
+{
+  if(input.find("-h") != std::string::npos)
+  {
+    this->help->showHelp(false, input);
+  }
+  std::string reportType, date;
+  std::cout << "Balance: Press 1\nSell: Press 2\nBuy: Press3\n";
+  std::getline(std::cin, reportType);
+  std::cout << "Please enter the date of the wallet status you want to review.(YYYY-MM)\n";
+  std::getline(std::cin, date);
+  std::vector<std::string> keys = {"type","date"};
+  std::vector<std::string> values = {reportType, date};
+  std::vector<std::string> dateTypes = {"String","String"};
+
+  this->executeBash->executeBashScript("https://api.bitskins.com/wallet/report/generate", this->profile->user->getAPIKey(), keys, values, dataTypes);
+  
+  return true;
+}
+
