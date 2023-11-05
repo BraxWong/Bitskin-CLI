@@ -40,6 +40,8 @@ class WalletReports
 
     bool generateWalletReports(std::string input);
 
+    bool downloadWalletReports(std::string input);
+
 };
 
 #endif

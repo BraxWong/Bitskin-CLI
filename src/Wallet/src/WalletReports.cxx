@@ -24,7 +24,7 @@ bool WalletReports::getWalletReports(std::string input)
 }
 
 
-bool WalletReports::generateWalletReports(std::string::input)
+bool WalletReports::generateWalletReports(std::string input)
 {
   if(input.find("-h") != std::string::npos)
   {
@@ -40,6 +40,26 @@ bool WalletReports::generateWalletReports(std::string::input)
   std::vector<std::string> dateTypes = {"String","String"};
 
   this->executeBash->executeBashScript("https://api.bitskins.com/wallet/report/generate", this->profile->user->getAPIKey(), keys, values, dataTypes);
+  
+  return true;
+}
+
+
+bool WalletReports::downloadWalletReports(std::string input)
+{
+  if(input.find("-h") != std::string::npos)
+  {
+    this->help->showHelp(false, input);
+  }
+
+  std::string id;
+  std::cout << "Please provide your ID.\n";
+  std::getline(std::cin, id);
+  std::vector<std::string> keys = {"id"};
+  std::vector<std::string> values = {id};
+  std::vector<std::string> dataTypes = {"String"};
+
+  this->executeBash->executeBashScript("https://api.bitskins.com/wallet/report/download", this->profile->user->getAPIKey(), keys, values, dataTypes);
   
   return true;
 }
