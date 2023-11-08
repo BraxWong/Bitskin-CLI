@@ -37,7 +37,7 @@ bool WalletReports::generateWalletReports(std::string input)
   std::getline(std::cin, date);
   std::vector<std::string> keys = {"type","date"};
   std::vector<std::string> values = {reportType, date};
-  std::vector<std::string> dateTypes = {"String","String"};
+  std::vector<std::string> dataTypes = {"String","String"};
 
   this->executeBash->executeBashScript("https://api.bitskins.com/wallet/report/generate", this->profile->user->getAPIKey(), keys, values, dataTypes);
   

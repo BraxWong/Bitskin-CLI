@@ -121,6 +121,10 @@ void Listener::listenCommand()
     {
       this->walletReports->downloadWalletReports(input);
     }
+    else if(input.find("-depositbinance") != std::string::npos)
+    {
+      this->walletDespoit->depositBinance(input);
+    }
     else 
     {
       std::cout << "Command not recognized. Please try again.\n";

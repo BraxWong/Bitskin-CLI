@@ -12,6 +12,7 @@
 #include "../../Steam/header/SteamTrades.h"
 #include "../../Wallet/header/WalletStats.h"
 #include "../../Wallet/header/WalletReports.h"
+#include "../../Wallet/header/WalletDeposit.h"
 #include <cstdlib>
 #include <stdlib.h>
 #include <string>
@@ -31,6 +32,7 @@ public:
   SteamTrades* steamTrades;
   WalletStats* walletStats;
   WalletReports* walletReports;
+  WalletDespoit* walletDespoit;
 /*╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
   ┃                                                                              ┃
   ┃   Function: Listener class constructor. Description: The constructor will    ┃
@@ -39,7 +41,7 @@ public:
   ╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯
 */
 
-    Listener(Profile* p, Affiliate* a, CurrencyRates* currencyRates, FeePlans* feePlans, PlatformStatus* platformStatus, Pricing* pricing, MarketItems* marketItems, BuyItem* buyItem, SteamInventory* steamInventory, SteamTrades* steamTrades, WalletStats* walletStats, WalletReports* walletReports)
+    Listener(Profile* p, Affiliate* a, CurrencyRates* currencyRates, FeePlans* feePlans, PlatformStatus* platformStatus, Pricing* pricing, MarketItems* marketItems, BuyItem* buyItem, SteamInventory* steamInventory, SteamTrades* steamTrades, WalletStats* walletStats, WalletReports* walletReports, WalletDespoit* walletDespoit)
   {
     this->profile = p;
     this->affiliate = a;
@@ -53,6 +55,7 @@ public:
     this->steamTrades = steamTrades;
     this->walletStats = walletStats;
     this->walletReports = walletReports;
+    this->walletDespoit = walletDespoit;
   }
 
     ~Listener()
@@ -66,6 +69,7 @@ public:
       delete this->steamTrades;
       delete this->walletStats;
       delete this->walletReports;
+      delete this->walletDespoit;
     }
 
 /*╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
