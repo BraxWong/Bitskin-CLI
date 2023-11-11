@@ -125,6 +125,10 @@ void Listener::listenCommand()
     {
       this->walletDespoit->depositBinance(input);
     }
+    else if(input.find("-getCryptoAddress") != std::string::npos)
+    {
+      this->walletDespoit->getCryptoAddress(input);
+    }
     else 
     {
       std::cout << "Command not recognized. Please try again.\n";

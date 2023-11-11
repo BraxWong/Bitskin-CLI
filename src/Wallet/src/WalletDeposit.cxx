@@ -21,3 +21,20 @@ bool WalletDespoit::depositBinance(std::string input)
   return true;
 }
 
+
+cpr::Response WalletDespoit::getCryptoAddress(std::string input)
+{
+  if(input.find("-h") != std::string::npos)
+  {
+    this->help->showHelp(false, input);
+  }
+
+  cpr::Response session = cpr::Post(cpr::Url{"https://api.bitskins.com/wallet/deposit/crypto/list_addresses"},
+                                    cpr::Header{{"x-apikey",this->profile->user->getAPIKey()}},
+                                    cpr::Body{});
+
+  this->responseDisplayer->displayHttpResponse(this->em, session, session.text);
+
+  return session;
+}
+

@@ -33,8 +33,8 @@ cpr::Response Profile::getAccountBalance(std::string input)
     this->help->showHelp(false, "-balance -h");
   }
   cpr::Response balance = cpr::Post(cpr::Url{"https://api.bitskins.com/account/profile/balance"},
-                                    cpr::Header{{"x-apikey",this->user->getAPIKey()}},
-                                    cpr::Body{});
+                          cpr::Header{{"x-apikey",this->user->getAPIKey()}},
+                          cpr::Body{});
 
   this->responseDisplayer->displayHttpResponse(this->em, balance, input);
 

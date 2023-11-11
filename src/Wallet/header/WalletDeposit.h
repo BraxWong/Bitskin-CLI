@@ -38,6 +38,7 @@ class WalletDespoit
   
     bool depositBinance(std::string input);
 
+    cpr::Response getCryptoAddress(std::string input);
 };
 
 #endif
