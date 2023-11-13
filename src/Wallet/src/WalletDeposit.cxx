@@ -38,3 +38,32 @@ cpr::Response WalletDespoit::getCryptoAddress(std::string input)
   return session;
 }
 
+bool WalletDespoit::getLitecoinAddress(std::string input)
+{
+  if(input.find("-h") != std::string::npos)
+  {
+    this->help->showHelp(false, input);
+  }
+  std::string uinput, type;
+  std::cout << "Please select the following type:\n1: legacy\n2: p2sh-segwit\n3: bech32\n";
+  std::getline(std::cin, uinput);
+  if(uinput == "1")
+  {
+    type = "legacy";
+  }
+  else if(uinput == "2")
+  {
+    type = "p2sh-segwit";
+  }
+  else 
+  {
+    type = "bech32";
+  }
+  std::vector<std::string> keys = {"type"};
+  std::vector<std::string> values = {type};
+  std::vector<std::string> dataTypes = {"String"};
+
+  this->executeBash->executeBashScript("https://api.bitskins.com/wallet/deposit/crypto/get_litecoin_address", this->profile->user->getAPIKey(), keys, values, dataTypes);
+
+  return true;
+}
