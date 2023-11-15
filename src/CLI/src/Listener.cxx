@@ -137,6 +137,10 @@ void Listener::listenCommand()
     {
       this->walletDespoit->getEtheriumAddress(input);
     }
+    else if(input.find("-getBitcoinAddress") != std::string::npos)
+    {
+      this->walletDespoit->getBitcoinAddress(input);
+    }
     else 
     {
       std::cout << "Command not recognized. Please try again.\n";

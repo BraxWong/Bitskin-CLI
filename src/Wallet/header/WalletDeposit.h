@@ -43,6 +43,8 @@ class WalletDespoit
     bool getLitecoinAddress(std::string input);
 
     bool getEtheriumAddress(std::string input);
+
+    bool getBitcoinAddress(std::string input);
 };
 
 #endif
