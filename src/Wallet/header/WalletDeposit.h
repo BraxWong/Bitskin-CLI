@@ -41,6 +41,8 @@ class WalletDespoit
     cpr::Response getCryptoAddress(std::string input);
 
     bool getLitecoinAddress(std::string input);
+
+    bool getEtheriumAddress(std::string input);
 };
 
 #endif
