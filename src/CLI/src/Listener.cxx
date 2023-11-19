@@ -141,6 +141,10 @@ void Listener::listenCommand()
     {
       this->walletDespoit->getBitcoinAddress(input);
     }
+    else if(input.find("-useGiftCode") != std::string::npos)
+    {
+      this->giftCode->useGiftCode(input);
+    }
     else 
     {
       std::cout << "Command not recognized. Please try again.\n";
