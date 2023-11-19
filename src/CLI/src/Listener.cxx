@@ -145,6 +145,10 @@ void Listener::listenCommand()
     {
       this->giftCode->useGiftCode(input);
     }
+    else if(input.find("-getUsedGiftCodes") != std::string::npos)
+    {
+      this->giftCode->getUsedGiftCodes(input);
+    }
     else 
     {
       std::cout << "Command not recognized. Please try again.\n";

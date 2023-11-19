@@ -37,6 +37,8 @@ class GiftCode
     }
     
     bool useGiftCode(std::string input);
+
+    cpr::Response getUsedGiftCodes(std::string input);
 };
 
 #endif
