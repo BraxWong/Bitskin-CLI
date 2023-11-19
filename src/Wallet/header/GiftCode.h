@@ -36,7 +36,27 @@ class GiftCode
       delete this->executeBash;
     }
     
+
+/*╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
+  ┃                                                                              ┃
+  ┃   Function: useGiftCode() Description: This method allows users to put in    ┃
+  ┃     their gift code. After successful verification, the users's bitskins     ┃
+  ┃                         wallet func will be updated.                         ┃
+  ┃                                                                              ┃
+  ╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯
+*/
+
     bool useGiftCode(std::string input);
+
+
+
+/*╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
+  ┃                                                                              ┃
+  ┃    Function: getUsedGiftCodes() Description: This method will display the    ┃
+  ┃  number of gift codes they have used and the list gift code they have used.  ┃
+  ┃                                                                              ┃
+  ╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯
+*/
 
     cpr::Response getUsedGiftCodes(std::string input);
 };
