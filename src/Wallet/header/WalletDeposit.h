@@ -91,6 +91,19 @@ class WalletDespoit
 */
 
     bool getBitcoinAddress(std::string input);
+
+
+
+/*╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
+  ┃                                                                              ┃
+  ┃     Function: depositZen() Description: When this method is called, the      ┃
+  ┃     users will be provided a link to Bitskins' Zen deposit website.          ┃
+  ┃    There users will be able to depose funds into their Bitskins' wallet.     ┃
+  ┃                                                                              ┃
+  ╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯
+*/
+     
+    bool depositZen(std::string input);
 };
 
 #endif
