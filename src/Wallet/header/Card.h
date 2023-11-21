@@ -37,6 +37,8 @@ class Card
     }
 
     cpr::Response getCards(std::string input);
+
+    bool depositCard(std::string input);
 }; 
 
 #endif // DEBUG

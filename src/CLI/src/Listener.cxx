@@ -157,6 +157,10 @@ void Listener::listenCommand()
     {
       this->card->getCards(input);
     }
+    else if(input.find("-depositCard") != std::string::npos)
+    {
+      this->card->depositCard(input);
+    }
     else 
     {
       std::cout << "Command not recognized. Please try again.\n";
