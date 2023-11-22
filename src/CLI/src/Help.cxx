@@ -8,7 +8,7 @@ bool HELP_H::Help::showHelp(bool fromHelpPage, std::string command)
   {
     std::cout << "Help Page:\n";
     std::cout << "Currently this program has 6 commands available.\n";
-    std::cout << "1: -help\n2: -quit\n3: -balance\n4: -session\n5: -tradelink\n6: -updateaccount\n7: -block\n8: -affiliate\n9: -claimmoney\n10: -historicrewards\n11: -setcode\n12: -currencyrates\n13: -platformstatus\n14: -sales\n15: -pricingsummary\n16: -steaminventory\n17: -steamtrades\n18: -activetrades\n19: -walletstats\n20: -kyclimits\n21: -walletreports\n22: -generatewalletreports\n23: -downloadwalletreports\n24: -depositbianace\n25: -getCryptoAddress\n26: -getLitecoinAddress\n27: -getEtheriumAddress\n28: -getBitcoinAddress\n29: -useGiftCode\n30: -getUsedGiftCodes\n31: -depositZen\n32: -getCards\n33: -depositCard\n";
+    std::cout << "1: -help\n2: -quit\n3: -balance\n4: -session\n5: -tradelink\n6: -updateaccount\n7: -block\n8: -affiliate\n9: -claimmoney\n10: -historicrewards\n11: -setcode\n12: -currencyrates\n13: -platformstatus\n14: -sales\n15: -pricingsummary\n16: -steaminventory\n17: -steamtrades\n18: -activetrades\n19: -walletstats\n20: -kyclimits\n21: -walletreports\n22: -generatewalletreports\n23: -downloadwalletreports\n24: -depositbianace\n25: -getCryptoAddress\n26: -getLitecoinAddress\n27: -getEtheriumAddress\n28: -getBitcoinAddress\n29: -useGiftCode\n30: -getUsedGiftCodes\n31: -depositZen\n32: -getCards\n33: -depositCard\n34: -withdrawlBitcoin";
     std::cout << "To obtain for information regarding one specific command, type in the command you want with the argument -h\n";
     std::cout << "For example: -quit -h\n";
     std::cout << "Enter -q to leave the help page.\n";
@@ -158,6 +158,10 @@ bool HELP_H::Help::showHelp(bool fromHelpPage, std::string command)
     else if(command == "-depositCard -h")
     {
       std::cout << "When -depositCard is entered, users will be able to deposit to their Bitskin account using their credit card.\n";
+    }
+    else if(command == "-withdrawlBitcoin -h")
+    {
+      std::cout << "When -withdrawlBitcoin is entered, users will be required to enter their bitcoin address, two factor authenticator code, and amount they would like to withdraw.\n";
     }
     else if(command == "-q")
     {

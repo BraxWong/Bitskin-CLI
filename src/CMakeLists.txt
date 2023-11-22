@@ -23,6 +23,7 @@ add_library(src
   Wallet/src/WalletDeposit.cxx
   Wallet/src/GiftCode.cxx
   Wallet/src/Card.cxx
+  Wallet/src/WalletWithdrawl.cxx
 )
 include(FetchContent)
 FetchContent_Declare(cpr GIT_REPOSITORY https://github.com/libcpr/cpr.git

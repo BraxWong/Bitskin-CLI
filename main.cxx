@@ -1,6 +1,7 @@
 #include "src/CLI/header/Listener.h"
 #include "src/CLI/header/MainMenu.h"
 #include "src/Wallet/header/WalletDeposit.h"
+#include "src/Wallet/header/WalletWithdrawl.h"
 
 
 /*       ╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
@@ -29,7 +30,8 @@ int main() {
   WalletDespoit* walletDeposit = new WalletDespoit(profile);
   GiftCode* giftCode = new GiftCode(profile);
   Card* card = new Card(profile);
-  Listener* listener = new Listener(profile, affiliate, currencyRates, feePlans, platformStatus, pricing, marketItems, buyItem, steamInventory, steamTrades, walletStats, walletReports, walletDeposit, giftCode, card);
+  WalletWithdrawl* walletWithdrawl = new WalletWithdrawl(profile);
+  Listener* listener = new Listener(profile, affiliate, currencyRates, feePlans, platformStatus, pricing, marketItems, buyItem, steamInventory, steamTrades, walletStats, walletReports, walletDeposit, giftCode, card, walletWithdrawl);
   listener->listenCommand();
   delete cli;
   delete profile;

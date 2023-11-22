@@ -1,0 +1,30 @@
+#include "../header/WalletWithdrawl.h"
+#include <iostream>
+#include <string>
+#include <vector>
+
+bool WalletWithdrawl::withdrawlBitcoin(std::string input)
+{
+  if(input.find("-h") != std::string::npos)
+  {
+    this->help->showHelp(false, input);
+  }
+ 
+  std::string amount, address, twoCode;
+
+  std::cout << "Please provide the amount you would like to withdrawl:\n";
+  std::getline(std::cin, amount);
+  std::cout << "Please provide your bitcoin address:\n";
+  std::getline(std::cin, address);
+  std::cout << "Please provide your 2 factor authentication code:\n";
+  std::getline(std::cin, twoCode);
+
+  std::vector<std::string> keys = {"amount","address","twofa_code""};
+  std::vector<std::string> values = {amount, address, twoCode};
+  std::vector<std::string> dataTypes = {"Number", "String", "String"};
+
+  this->executeBash->executeBashScript("https://api.bitskins.com/wallet/withdraw/crypto/litecoin",this->profile->user->getAPIKey(), keys, values, dataTypes);
+
+  return true;
+
+}
