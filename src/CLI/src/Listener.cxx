@@ -165,6 +165,14 @@ void Listener::listenCommand()
     {
       this->walletWithdrawl->withdrawlBitcoin(input);
     }
+    else if(input.find("-withdrawlLitecoin") != std::string::npos)
+    {
+      this->walletWithdrawl->withdrawlLitecoin(input);
+    }
+    else if(input.find("-withdrawlEthereum") != std::string::npos)
+    {
+      this->walletWithdrawl->withdrawlEthereum(input);
+    }
     else 
     {
       std::cout << "Command not recognized. Please try again.\n";
