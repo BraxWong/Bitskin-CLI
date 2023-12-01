@@ -177,6 +177,10 @@ void Listener::listenCommand()
     {
       this->walletWithdrawl->withdrawlBinance(input);
     }
+    else if(input.find("-withdrawlVisa") != std::string::npos)
+    {
+      this->walletWithdrawl->withdrawlVisa(input);
+    }
     else 
     {
       std::cout << "Command not recognized. Please try again.\n";

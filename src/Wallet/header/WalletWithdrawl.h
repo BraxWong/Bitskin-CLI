@@ -44,6 +44,8 @@ class WalletWithdrawl
     bool withdrawlEthereum(std::string input);
 
     bool withdrawlBinance(std::string input);
+
+    bool withdrawlVisa(std::string input);
 };
 
 #endif
