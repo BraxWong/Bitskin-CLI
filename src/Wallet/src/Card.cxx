@@ -12,7 +12,7 @@ cpr::Response Card::getCards(std::string input)
                           cpr::Header{{"x-apikey",this->profile->user->getAPIKey()}},
                           cpr::Body{});
 
-  this->responseDisplayer->displayHttpResponse(this->em, response, input);
+  this->responseDisplayer->displayHttpResponse(this->em, response.text, input);
 
   return response;
 }
@@ -36,7 +36,8 @@ bool Card::depositCard(std::string input)
   std::vector<std::string> values = {card_id, amount, securityCode};
   std::vector<std::string> dataTypes = {"Number", "Number", "String"};
 
-  this->executeBash->executeBashScript("https://api.bitskins.com/wallet/deposit/unlimint/card_deposit", this->profile->user->getAPIKey(), keys, values, dataTypes);
+  std::string response = this->executeBash->returnResponse("https://api.bitskins.com/wallet/deposit/unlimint/card_deposit", this->profile->user->getAPIKey(), keys, values, dataTypes);
+  this->responseDisplayer->displayHttpResponse(this->em, response, input);
 
   return true;
 }

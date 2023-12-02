@@ -13,6 +13,6 @@ cpr::Response APIKey::disableAPIKey(std::string input)
                                  cpr::Header{{"x-apikey",this->profile->user->getAPIKey()}},
                                  cpr::Body{});
 
-  this->responseDisplayer->displayHttpResponse(this->em, response, input); 
+  this->responseDisplayer->displayHttpResponse(this->em, response.text, input); 
   return response;
 }

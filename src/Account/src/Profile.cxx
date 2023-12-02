@@ -21,7 +21,7 @@ cpr::Response Profile::getCurrentSession(std::string input)
   cpr::Response session = cpr::Get(cpr::Url{"https://api.bitskins.com/account/profile/me"},  
                                    cpr::Header{{"x-apikey",this->user->getAPIKey()}});
 
-  this->responseDisplayer->displayHttpResponse(this->em, session, input); 
+  this->responseDisplayer->displayHttpResponse(this->em, session.text, input); 
 
   return session;
 }
@@ -36,7 +36,7 @@ cpr::Response Profile::getAccountBalance(std::string input)
                           cpr::Header{{"x-apikey",this->user->getAPIKey()}},
                           cpr::Body{});
 
-  this->responseDisplayer->displayHttpResponse(this->em, balance, input);
+  this->responseDisplayer->displayHttpResponse(this->em, balance.text, input);
 
   return balance;
 }
@@ -53,7 +53,8 @@ void Profile::updateTradeLink(std::string input)
   std::vector<std::string> keys = {"tradelink"};
   std::vector<std::string> values = {Url};
   std::vector<std::string> dataTypes = {"String"};
-  this->executeBash->executeBashScript("https://api.bitskins.com/account/profile/update_tradelink", this->user->getAPIKey(), keys,  values, dataTypes);
+  std::string response = this->executeBash->returnResponse("https://api.bitskins.com/account/profile/update_tradelink", this->user->getAPIKey(), keys,  values, dataTypes);
+  this->responseDisplayer->displayHttpResponse(this->em, response, input);
 }
 
 cpr::Response Profile::updateAccount(std::string input)
@@ -66,7 +67,7 @@ cpr::Response Profile::updateAccount(std::string input)
                                       cpr::Header{{"x-apikey", this->user->getAPIKey()}},
                                       cpr::Payload{{"tradelink", "https://steamcommunity.com/tradeoffer/new/?partner=1111&token=AAAA"}});
 
-  this->responseDisplayer->displayHttpResponse(this->em, account, input); 
+  this->responseDisplayer->displayHttpResponse(this->em, account.text, input); 
   return account;
 
 }
@@ -87,7 +88,7 @@ cpr::Response Profile::blockAccount(std::string input)
   cpr::Response block = cpr::Post(cpr::Url{"https://api.bitskins.com/account/profile/block"},
                                       cpr::Header{{"x-apikey", this->user->getAPIKey()}},
                                       cpr::Body{});
-  this->responseDisplayer->displayHttpResponse(this->em, block, input); 
+  this->responseDisplayer->displayHttpResponse(this->em, block.text, input); 
   return block;
 }
 

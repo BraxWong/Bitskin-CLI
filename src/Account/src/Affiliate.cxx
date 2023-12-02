@@ -13,7 +13,7 @@ cpr::Response Affiliate::getAffiliateInfo(std::string input)
   cpr::Response affiliate_info = cpr::Post(cpr::Url{"https://api.bitskins.com/account/affiliate/me"}, 
                                  cpr::Header{{"x-apikey",this->profile->user->getAPIKey()}},
                                  cpr::Body{});
-  this->responseDisplayer->displayHttpResponse(this->em, affiliate_info, input); 
+  this->responseDisplayer->displayHttpResponse(this->em, affiliate_info.text, input); 
   return affiliate_info;
 }
 
@@ -26,7 +26,7 @@ cpr::Response Affiliate::claimMoney(std::string input)
   cpr::Response response = cpr::Post(cpr::Url{"https://api.bitskins.com/account/affiliate/transfer_money"}, 
                                  cpr::Header{{"x-apikey",this->profile->user->getAPIKey()}},
                                  cpr::Body{});
-  this->responseDisplayer->displayHttpResponse(this->em, response, input); 
+  this->responseDisplayer->displayHttpResponse(this->em, response.text, input); 
   return response;
 }
 
@@ -44,7 +44,8 @@ void Affiliate::getListHistoricalRewards(std::string input)
   std::vector<std::string> keys = {"limit","offset"};
   std::vector<std::string> values = {limit, offset};
   std::vector<std::string> dataTypes = {"Numbers","Numbers"};
-  this->executeBash->executeBashScript("https://api.bitskins.com/account/affiliate/history", this->profile->user->getAPIKey(), keys, values, dataTypes);
+  std::string response = this->executeBash->returnResponse("https://api.bitskins.com/account/affiliate/history", this->profile->user->getAPIKey(), keys, values, dataTypes);
+  this->responseDisplayer->displayHttpResponse(this->em, response, input);
 }
 
 void Affiliate::setAffiliateCode(std::string input)
@@ -59,5 +60,6 @@ void Affiliate::setAffiliateCode(std::string input)
   std::vector<std::string> keys = {"code"};
   std::vector<std::string> values = {code};
   std::vector<std::string> dataTypes = {"String"};
-  this->executeBash->executeBashScript("https://api.bitskins.com/account/affiliate/set_code", this->profile->user->getAPIKey(), keys, values, dataTypes);
+  std::string response = this->executeBash->returnResponse("https://api.bitskins.com/account/affiliate/set_code", this->profile->user->getAPIKey(), keys, values, dataTypes);
+  this->responseDisplayer->displayHttpResponse(this->em, response, input);
 }

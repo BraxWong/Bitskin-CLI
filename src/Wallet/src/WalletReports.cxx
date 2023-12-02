@@ -17,8 +17,8 @@ bool WalletReports::getWalletReports(std::string input)
   std::vector<std::string> values = {type, status};
   std::vector<std::string> dataTypes = {"Number", "Number"};
 
-  this->executeBash->executeBashScript("https://api.bitskins.com/wallet/report/list", this->profile->user->getAPIKey(), keys, values, dataTypes);
-
+  std::string response = this->executeBash->returnResponse("https://api.bitskins.com/wallet/report/list", this->profile->user->getAPIKey(), keys, values, dataTypes);
+  this->responseDisplayer->displayHttpResponse(this->em, response, input);
   return true;
 
 }
@@ -39,8 +39,8 @@ bool WalletReports::generateWalletReports(std::string input)
   std::vector<std::string> values = {reportType, date};
   std::vector<std::string> dataTypes = {"String","String"};
 
-  this->executeBash->executeBashScript("https://api.bitskins.com/wallet/report/generate", this->profile->user->getAPIKey(), keys, values, dataTypes);
-  
+  std::string response = this->executeBash->returnResponse("https://api.bitskins.com/wallet/report/generate", this->profile->user->getAPIKey(), keys, values, dataTypes);
+  this->responseDisplayer->displayHttpResponse(this->em, response, input); 
   return true;
 }
 
@@ -59,8 +59,8 @@ bool WalletReports::downloadWalletReports(std::string input)
   std::vector<std::string> values = {id};
   std::vector<std::string> dataTypes = {"String"};
 
-  this->executeBash->executeBashScript("https://api.bitskins.com/wallet/report/download", this->profile->user->getAPIKey(), keys, values, dataTypes);
-  
+  std::string response = this->executeBash->returnResponse("https://api.bitskins.com/wallet/report/download", this->profile->user->getAPIKey(), keys, values, dataTypes);
+  this->responseDisplayer->displayHttpResponse(this->em, response, input); 
   return true;
 }
 

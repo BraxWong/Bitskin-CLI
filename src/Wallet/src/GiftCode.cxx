@@ -17,8 +17,8 @@ bool GiftCode::useGiftCode(std::string input)
   std::vector<std::string> values = {giftCode};
   std::vector<std::string> dataTypes = {"String"};
 
-  this->executeBash->executeBashScript("https://api.bitskins.com/wallet/deposit/gift_code/use", this->profile->user->getAPIKey(), keys, values, dataTypes);
-
+  std::string response = this->executeBash->returnResponse("https://api.bitskins.com/wallet/deposit/gift_code/use", this->profile->user->getAPIKey(), keys, values, dataTypes);
+  this->responseDisplayer->displayHttpResponse(this->em, response, input);
   return true;
 }
 
@@ -32,8 +32,6 @@ cpr::Response GiftCode::getUsedGiftCodes(std::string input)
                           cpr::Header{{"x-apikey",this->profile->user->getAPIKey()}},
                           cpr::Body{});
 
-  this->responseDisplayer->displayHttpResponse(this->em, response, input);
-
+  this->responseDisplayer->displayHttpResponse(this->em, response.text, input);
   return response;
-
 }

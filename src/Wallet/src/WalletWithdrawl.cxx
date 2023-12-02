@@ -23,8 +23,8 @@ bool WalletWithdrawl::withdrawlBitcoin(std::string input)
   std::vector<std::string> values = {amount, address, twoCode};
   std::vector<std::string> dataTypes = {"Number", "String", "String"};
 
-  this->executeBash->executeBashScript("https://api.bitskins.com/wallet/withdraw/crypto/litecoin",this->profile->user->getAPIKey(), keys, values, dataTypes);
-
+  std::string response = this->executeBash->returnResponse("https://api.bitskins.com/wallet/withdraw/crypto/litecoin",this->profile->user->getAPIKey(), keys, values, dataTypes);
+  this->responseDisplayer->displayHttpResponse(this->em, response, input);
   return true;
 
 }
@@ -50,8 +50,8 @@ bool WalletWithdrawl::withdrawlLitecoin(std::string input)
   std::vector<std::string> values = {amount, address, twoCode};
   std::vector<std::string> dataTypes = {"Number", "String", "String"};
 
-  this->executeBash->executeBashScript("https://api.bitskins.com/wallet/withdraw/crypto/bitcoin",this->profile->user->getAPIKey(), keys, values, dataTypes);
-
+  std::string response = this->executeBash->returnResponse("https://api.bitskins.com/wallet/withdraw/crypto/bitcoin",this->profile->user->getAPIKey(), keys, values, dataTypes);
+  this->responseDisplayer->displayHttpResponse(this->em, response, input);
   return true;
 }
 
@@ -75,8 +75,8 @@ bool WalletWithdrawl::withdrawlEthereum(std::string input)
   std::vector<std::string> values = {amount, address, twoCode};
   std::vector<std::string> dataTypes = {"Number", "String", "String"};
 
-  this->executeBash->executeBashScript("https://api.bitskins.com/wallet/withdraw/crypto/ethereum",this->profile->user->getAPIKey(), keys, values, dataTypes);
-
+  std::string response = this->executeBash->returnResponse("https://api.bitskins.com/wallet/withdraw/crypto/ethereum",this->profile->user->getAPIKey(), keys, values, dataTypes);
+  this->responseDisplayer->displayHttpResponse(this->em, response, input);
   return true;
 }
 
@@ -100,8 +100,8 @@ bool WalletWithdrawl::withdrawlBinance(std::string input)
   std::vector<std::string> values = {amount, receiver, twoCode};
   std::vector<std::string> dataTypes = {"Number", "String", "String"};
 
-  this->executeBash->executeBashScript("https://api.bitskins.com/wallet/withdraw/binancepay/create",this->profile->user->getAPIKey(), keys, values, dataTypes);
-
+  std::string response = this->executeBash->returnResponse("https://api.bitskins.com/wallet/withdraw/binancepay/create",this->profile->user->getAPIKey(), keys, values, dataTypes);
+  this->responseDisplayer->displayHttpResponse(this->em, response, input);
   return true;
 }
 
@@ -127,7 +127,7 @@ bool WalletWithdrawl::withdrawlVisa(std::string input)
   std::vector<std::string> values = {cardId, amount, securityCode, twoCode};
   std::vector<std::string> dataTypes = {"Number", "Number", "String", "String"};
 
-  this->executeBash->executeBashScript("https://api.bitskins.com/wallet/withdraw/unlimint/card_withdraw",this->profile->user->getAPIKey(), keys, values, dataTypes);
-
+  std::string response = this->executeBash->returnResponse("https://api.bitskins.com/wallet/withdraw/unlimint/card_withdraw",this->profile->user->getAPIKey(), keys, values, dataTypes);
+  this->responseDisplayer->displayHttpResponse(this->em, response, input);
   return true;
 }

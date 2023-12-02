@@ -13,6 +13,6 @@ cpr::Response CurrencyRates::getCurrencyRates(std::string input)
   cpr::Response response = cpr::Get(cpr::Url{"https://api.bitskins.com/config/currency/list"},
                                     cpr::Header{{"x-apikey", this->profile->user->getAPIKey()}});
 
-  this->responseDisplayer->displayHttpResponse(this->em, response, input);
+  this->responseDisplayer->displayHttpResponse(this->em, response.text, input);
   return response;
 }

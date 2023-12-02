@@ -12,7 +12,7 @@ cpr::Response WalletStats::getWalletStats(std::string input)
   cpr::Response session = cpr::Get(cpr::Url{"https://api.bitskins.com/wallet/stats/get"},  
                                    cpr::Header{{"x-apikey",this->profile->user->getAPIKey()}});
 
-  this->responseDisplayer->displayHttpResponse(this->em, session, input); 
+  this->responseDisplayer->displayHttpResponse(this->em, session.text, input); 
 
   return session;
 
@@ -27,7 +27,7 @@ cpr::Response WalletStats::getKYCLimits(std::string input)
   cpr::Response session = cpr::Get(cpr::Url{"https://api.bitskins.com/wallet/stats/get_kyc_limit"},  
                                    cpr::Header{{"x-apikey",this->profile->user->getAPIKey()}});
 
-  this->responseDisplayer->displayHttpResponse(this->em, session, input); 
+  this->responseDisplayer->displayHttpResponse(this->em, session.text, input); 
 
   return session;
 

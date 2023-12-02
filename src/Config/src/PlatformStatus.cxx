@@ -13,7 +13,7 @@ cpr::Response PlatformStatus::getPlatformStatus(std::string input)
   cpr::Response response = cpr::Get(cpr::Url{"https://api.bitskins.com/config/status/get"},
                                     cpr::Header{{"x-apikey", this->profile->user->getAPIKey()}});
 
-  this->responseDisplayer->displayHttpResponse(this->em, response, input);
+  this->responseDisplayer->displayHttpResponse(this->em, response.text, input);
   
   Global_Platform_Status buyOrder = static_cast<Global_Platform_Status>(json::parse(response.text)["buy_order"]);
   Global_Platform_Status instant_sell = static_cast<Global_Platform_Status>(json::parse(response.text)["instant_sell"]);

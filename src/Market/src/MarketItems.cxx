@@ -15,20 +15,23 @@ void MarketItems::userStores(std::string input)
   std::getline(std::cin, storeAlias);
   std::cout << "Please provide the storeHash (Press enter if you don't have one):\n";
   std::getline(std::cin, storeHash);
+  std::vector<std::string> keys;
+  std::vector<std::string> values;
+  std::vector<std::string> dataTypes;
   if(storeHash != "")
   {
-    std::vector<std::string> keys = {"store_alias", "store_hash"};
-    std::vector<std::string> values = {storeAlias, storeHash};
-    std::vector<std::string> dataTypes = {"String", "String"};
-    this->executeBash->executeBashScript("https://api.bitskins.com/market/search/store", this->profile->user->getAPIKey(), keys, values, dataTypes);
+    keys = {"store_alias", "store_hash"};
+    values = {storeAlias, storeHash};
+    dataTypes = {"String", "String"};
   }
   else 
   {
-    std::vector<std::string> keys = {"store_alias"};
-    std::vector<std::string> values = {storeAlias};
-    std::vector<std::string> dataTypes = {"String"};
-    this->executeBash->executeBashScript("https://api.bitskins.com/market/search/store", this->profile->user->getAPIKey(), keys, values, dataTypes);
+    keys = {"store_alias"};
+    values = {storeAlias};
+    dataTypes = {"String"};
   }
+  std::string response = this->executeBash->returnResponse("https://api.bitskins.com/market/search/store", this->profile->user->getAPIKey(), keys, values, dataTypes);
+  this->responseDisplayer->displayHttpResponse(this->em, response, input);
 }
 
 

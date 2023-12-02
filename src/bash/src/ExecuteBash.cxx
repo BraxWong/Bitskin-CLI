@@ -5,7 +5,7 @@
 #include <cstdio>
 #include <sstream>
 
-bool ExecuteBash::executeBashScript(std::string url, std::string APIKey, std::vector<std::string> keys, std::vector<std::string> values, std::vector<std::string> dataTypes)
+std::string ExecuteBash::returnResponse(std::string url, std::string APIKey, std::vector<std::string> keys, std::vector<std::string> values, std::vector<std::string> dataTypes)
 {
   std::stringstream command;
   std::vector<std::string> args = this->createBashCMD(url, APIKey, keys, values, dataTypes);
@@ -30,21 +30,7 @@ bool ExecuteBash::executeBashScript(std::string url, std::string APIKey, std::ve
   pclose(pipe);
 
   //Return the captured output as a string
-  std::string str = output.str();
-  std::string res;
-  for(int i = 0; i < str.length(); ++i)
-  {
-    if(str[i] == '{')
-    {
-      for(int j = i; j < str.length(); ++j)
-      {
-        res += str[j];
-      }
-      break;
-    }
-  }
-  std::cout << res << "\n";
-  return false;
+  return output.str();
 }
 
 std::vector<std::string> ExecuteBash::createBashCMD(std::string url, std::string APIKey, std::vector<std::string> keys, std::vector<std::string> values, std::vector<std::string> dataTypes)

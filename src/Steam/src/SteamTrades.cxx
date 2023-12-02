@@ -18,7 +18,8 @@ bool SteamTrades::getSteamTrades(std::string input)
   std::vector<std::string> keys = {"app_id", "limit", "offset"};
   std::vector<std::string> values = {appID, limit, offset};
   std::vector<std::string> dataTypes = {"Number", "Number", "Number"};
-  this->executeBash->executeBashScript("https://api.bitskins.com/steam/trade/list", this->profile->user->getAPIKey(), keys, values, dataTypes);
+  std::string response = this->executeBash->returnResponse("https://api.bitskins.com/steam/trade/list", this->profile->user->getAPIKey(), keys, values, dataTypes);
+  this->responseDisplayer->displayHttpResponse(this->em, response, input);
   return true;
 }
 
@@ -38,7 +39,8 @@ bool SteamTrades::getActiveSteamTrades(std::string input)
   std::vector<std::string> keys = {"app_id", "limit", "offset"};
   std::vector<std::string> values = {appID, limit, offset};
   std::vector<std::string> dataTypes = {"Number", "Number", "Number"};
-  this->executeBash->executeBashScript("https://api.bitskins.com/steam/trade/active", this->profile->user->getAPIKey(), keys, values, dataTypes);
+  std::string response = this->executeBash->returnResponse("https://api.bitskins.com/steam/trade/active", this->profile->user->getAPIKey(), keys, values, dataTypes);
+  this->responseDisplayer->displayHttpResponse(this->em, response, input);
   return true;
 }
 
@@ -52,7 +54,7 @@ cpr::Response SteamTrades::getSteamTradeHash(std::string input)
   cpr::Response session = cpr::Get(cpr::Url{"https://api.bitskins.com/trade/active_hash"},  
                                    cpr::Header{{"x-apikey",this->profile->user->getAPIKey()}});
 
-  this->responseDisplayer->displayHttpResponse(this->em, session, input); 
+  this->responseDisplayer->displayHttpResponse(this->em, session.text, input); 
 
   return session;
 }

@@ -16,8 +16,8 @@ bool WalletDespoit::depositBinance(std::string input)
   std::vector<std::string> values = {amount};
   std::vector<std::string> dataTypes = {"Number"};
 
-  this->executeBash->executeBashScript("https://api.bitskins.com/wallet/deposit/binancepay/create", this->profile->user->getAPIKey(), keys, values, dataTypes);
-
+  std::string response = this->executeBash->returnResponse("https://api.bitskins.com/wallet/deposit/binancepay/create", this->profile->user->getAPIKey(), keys, values, dataTypes);
+  this->responseDisplayer->displayHttpResponse(this->em, response, input);
   return true;
 }
 
@@ -35,8 +35,8 @@ bool WalletDespoit::depositZen(std::string input)
   std::vector<std::string> values = {amount};
   std::vector<std::string> dataTypes = {"Number"};
 
-  this->executeBash->executeBashScript("https://api.bitskins.com/wallet/deposit/zen/create", this->profile->user->getAPIKey(), keys, values, dataTypes);
-
+  std::string response = this->executeBash->returnResponse("https://api.bitskins.com/wallet/deposit/zen/create", this->profile->user->getAPIKey(), keys, values, dataTypes);
+  this->responseDisplayer->displayHttpResponse(this->em, response, input);
   return true;
 }
 
@@ -51,7 +51,7 @@ cpr::Response WalletDespoit::getCryptoAddress(std::string input)
                                     cpr::Header{{"x-apikey",this->profile->user->getAPIKey()}},
                                     cpr::Body{});
 
-  this->responseDisplayer->displayHttpResponse(this->em, session, session.text);
+  this->responseDisplayer->displayHttpResponse(this->em, session.text, input);
 
   return session;
 }
@@ -81,8 +81,8 @@ bool WalletDespoit::getLitecoinAddress(std::string input)
   std::vector<std::string> values = {type};
   std::vector<std::string> dataTypes = {"string"};
 
-  this->executeBash->executeBashScript("https://api.bitskins.com/wallet/deposit/crypto/get_litecoin_address", this->profile->user->getAPIKey(), keys, values, dataTypes);
-
+  std::string response = this->executeBash->returnResponse("https://api.bitskins.com/wallet/deposit/crypto/get_litecoin_address", this->profile->user->getAPIKey(), keys, values, dataTypes);
+  this->responseDisplayer->displayHttpResponse(this->em, response, input);
   return true;
 }
 
@@ -111,8 +111,8 @@ bool WalletDespoit::getEtheriumAddress(std::string input)
   std::vector<std::string> keys = {"type"};
   std::vector<std::string> values = {type};
   std::vector<std::string> dataTypes = {"string"};
-  this->executeBash->executeBashScript("https://api.bitskins.com/wallet/deposit/crypto/get_ethereum_address", this->profile->user->getAPIKey(), keys, values, dataTypes);
-
+  std::string response = this->executeBash->returnResponse("https://api.bitskins.com/wallet/deposit/crypto/get_ethereum_address", this->profile->user->getAPIKey(), keys, values, dataTypes);
+  this->responseDisplayer->displayHttpResponse(this->em, response, input);
   return true;
 
 }
@@ -143,7 +143,7 @@ bool WalletDespoit::getBitcoinAddress(std::string input)
   std::vector<std::string> values = {type};
   std::vector<std::string> dataTypes = {"string"};
   
-  this->executeBash->executeBashScript("https://api.bitskins.com/wallet/deposit/crypto/get_bitcoin_address", this->profile->user->getAPIKey(), keys, values, dataTypes);
-
+  std::string response = this->executeBash->returnResponse("https://api.bitskins.com/wallet/deposit/crypto/get_bitcoin_address", this->profile->user->getAPIKey(), keys, values, dataTypes);
+  this->responseDisplayer->displayHttpResponse(this->em, response, input);
   return true;
 }

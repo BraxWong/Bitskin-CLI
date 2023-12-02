@@ -22,6 +22,6 @@ class ResponseDisplayer {
 
     bool displayArgumentInfoOnly(json j, std::string input);
 
-    bool displayHttpResponse(ERRORMAP::errormap* em, cpr::Response response, std::string input);
+    bool displayHttpResponse(ERRORMAP::errormap* em, std::string response, std::string input);
 };
 #endif

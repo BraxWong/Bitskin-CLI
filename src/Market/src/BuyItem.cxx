@@ -19,6 +19,7 @@ void BuyItem::buySingleItem(std::string input)
   std::vector<std::string> values = {appID, skinID, maxPrice};
   std::vector<std::string> dataTypes = {"Number","String","Number"};
 
-  this->executeBash->executeBashScript("https://api.bitskins.com/market/buy/single", this->profile->user->getAPIKey(), keys, values, dataTypes);
+  std::string response = this->executeBash->returnResponse("https://api.bitskins.com/market/buy/single", this->profile->user->getAPIKey(), keys, values, dataTypes);
+  this->responseDisplayer->displayHttpResponse(this->em, response, input);
 }
 

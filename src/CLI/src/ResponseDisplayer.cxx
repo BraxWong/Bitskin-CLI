@@ -26,18 +26,14 @@ bool ResponseDisplayer::displayArgumentInfoOnly(json j, std::string input)
   return false;
 }
 
-bool ResponseDisplayer::displayHttpResponse(ERRORMAP::errormap* em, cpr::Response response, std::string input)
+bool ResponseDisplayer::displayHttpResponse(ERRORMAP::errormap* em, std::string output, std::string input)
 {
-  if(response.error)
+  if(output[0] == '{')
   {
-    return false;
-  }
-  if(response.text[0] == '{')
-  {
-    json j = json::parse(response.text);
+    json j = json::parse(output);
     if(!em->checkErrorResponse(j) && !this->displayArgumentInfoOnly(j, input))
     {
-      std::cout << response.url << "\n" << j.dump(4) << "\n";
+      std::cout << j.dump(4) << "\n";
     }
   }
   else 

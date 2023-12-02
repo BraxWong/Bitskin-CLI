@@ -18,7 +18,8 @@ void Pricing::getSales(std::string input)
   std::vector<std::string> keys = {"app_id", "skin_id"};
   std::vector<std::string> values = {appID, skinID};
   std::vector<std::string> dataTypes = {"Number", "Number"};
-  this->executeBash->executeBashScript("https://api.bitskins.com/market/pricing/list", this->profile->user->getAPIKey(), keys, values, dataTypes);
+  std::string response = this->executeBash->returnResponse("https://api.bitskins.com/market/pricing/list", this->profile->user->getAPIKey(), keys, values, dataTypes);
+  this->responseDisplayer->displayHttpResponse(this->em, response, input);
 }
 
 
@@ -40,5 +41,6 @@ void Pricing::getPricingSummary(std::string input)
   std::vector<std::string> keys = {"app_id", "skin_id", "date_from", "date_to"};
   std::vector<std::string> values = {appID, skinID, date_from, date_to};
   std::vector<std::string> dataTypes = {"Number","Number","String","String"};
-  this->executeBash->executeBashScript("https://api.bitskins.com/market/pricing/summary", this->profile->user->getAPIKey(), keys, values, dataTypes);
+  std::string response = this->executeBash->returnResponse("https://api.bitskins.com/market/pricing/summary", this->profile->user->getAPIKey(), keys, values, dataTypes);
+  this->responseDisplayer->displayHttpResponse(this->em, response, input);
 }
