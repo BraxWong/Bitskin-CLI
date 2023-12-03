@@ -43,4 +43,4 @@ cd Bitskin-CLI
 
 <h2>Screenshots 📸</h2>
 
-1. ![[Screen Shot 2023-12-03 at 3.58.53 PM.png]]
+1. ![[Resouces/Starting_Screen.png]]
