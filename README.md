@@ -43,4 +43,4 @@ cd Bitskin-CLI
 
 <h2>Screenshots 📸</h2>
 
-1. ![[Resouces/Starting_Screen.png]]
+1. ![[Resources/Starting_Screen.png]]
