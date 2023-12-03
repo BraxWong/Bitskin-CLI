@@ -6,10 +6,11 @@
 
 <h2> Installation💾 </h2>
 1. Clone the repository using the following command
+
 ```
 git clone https://github.com/BraxWong/Bitskin-CLI.git
 ```
-	- Trivial but make sure you have git installed on your machine.
+- Trivial but make sure you have git installed on your machine.
 
 2. Change the directory to the repository that you have just cloned
 ```
@@ -20,7 +21,7 @@ cd Bitskin-CLI
 ```
 ./build.sh
 ```
-	- Trivial again but make sure to do chmod u+x build.sh to give the script permission to run
+- Trivial again but make sure to do chmod u+x build.sh to give the script permission to run
 
 4. Follow the instructions on screen and you will be able to use the features provided by the program.
 
@@ -43,4 +44,5 @@ cd Bitskin-CLI
 
 <h2>Screenshots 📸</h2>
 
-1. ![[Resources/Starting_Screen.png]]
+1. 
+![MainMenu](/Resources/Starting_Screen.png)
