@@ -31,11 +31,7 @@ target_link_libraries(${PROJECT_NAME}
   PRIVATE cpr::cpr
   PRIVATE nlohmann_json::nlohmann_json
   PRIVATE Catch2::Catch2WithMain
-  PRIVATE Poco::Foundation
-  PRIVATE Poco::Util
-  PRIVATE Poco::Net
-  PRIVATE Poco::NetSSL
-)
+  )
 target_include_directories(${PROJECT_NAME}
   PUBLIC src
   PUBLIC ${PROJECT_BINARY_DIR}

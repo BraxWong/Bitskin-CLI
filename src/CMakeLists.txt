@@ -1,3 +1,7 @@
+list(APPEND CMAKE_PREFIX_PATH "${CMAKE_CURRENT_SOURCE_DIR}/../submodules/poco/cmake-build")
+
+find_package(Poco REQUIRED COMPONENTS Foundation Util Net NetSSL)
+
 add_library(src 
   CLI/src/MainMenu.cxx 
   CLI/src/UserCredentials.cxx
@@ -24,6 +28,7 @@ add_library(src
   Wallet/src/GiftCode.cxx
   Wallet/src/Card.cxx
   Wallet/src/WalletWithdrawl.cxx
+  EmailSender/src/EmailSender.cxx
 )
 include(FetchContent)
 FetchContent_Declare(cpr GIT_REPOSITORY https://github.com/libcpr/cpr.git
@@ -33,4 +38,9 @@ find_package(nlohmann_json 3.2.0 REQUIRED)
 target_link_libraries(src 
   PRIVATE cpr::cpr
   PRIVATE nlohmann_json::nlohmann_json
+  PRIVATE Poco::Foundation
+  PRIVATE Poco::Util
+  PRIVATE Poco::Net
+  PRIVATE Poco::NetSSL
+
 )
