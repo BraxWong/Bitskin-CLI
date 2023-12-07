@@ -42,5 +42,4 @@ target_link_libraries(src
   PRIVATE Poco::Util
   PRIVATE Poco::Net
   PRIVATE Poco::NetSSL
-
 )

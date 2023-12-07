@@ -12,9 +12,9 @@ class EmailSender
 {
   public:
   EmailSender(std::string emailAddr)
-    {
-      this->emailAddr = emailAddr;
-    }
+  {
+    this->emailAddr = emailAddr;
+  }
     void sendEmail(std::string emailContent, std::string subject);
     inline std::string getEmailAddr() { return emailAddr; }
   private:

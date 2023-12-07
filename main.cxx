@@ -2,7 +2,7 @@
 #include "src/CLI/header/MainMenu.h"
 #include "src/Wallet/header/WalletDeposit.h"
 #include "src/Wallet/header/WalletWithdrawl.h"
-
+#include "src/EmailSender/header/EmailSender.h"
 
 /*       ╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
          ┃                                                              ┃
@@ -11,6 +11,12 @@
          ╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯
 */
 
+/* int main() */
+/* { */
+/*   EmailSender* es = new EmailSender("ghostenjob@gmail.com"); */
+/*   es->sendEmail("TESTING TESTING 123", "TESTING"); */
+/*   return 1; */
+/* } */
 int main() {
   CLI *cli = new CLI();
   cli->showCLIGreetings();
