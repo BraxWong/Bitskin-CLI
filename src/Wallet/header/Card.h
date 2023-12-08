@@ -6,6 +6,7 @@
 #include "../../bash/header/ExecuteBash.h"
 #include "../../CLI/header/ResponseDisplayer.h"
 #include "../../Account/header/Profile.h"
+#include "WalletStats.h"
 #include <cstdlib>
 #include <stdlib.h>
 #include <string>
@@ -36,7 +37,29 @@ class Card
       delete this->executeBash;
     }
 
+
+/*╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
+  ┃                                                                              ┃
+  ┃                             Function: getCards()                             ┃
+  ┃        Description: This method allows users to retrieve credit cards        ┃
+  ┃          information that they have stored on their Bitskin Account          ┃
+  ┃                         Return: cpr::Response object                         ┃
+  ┃                                                                              ┃
+  ╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯
+*/
+
     cpr::Response getCards(std::string input);
+
+
+/*╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
+  ┃                                                                              ┃
+  ┃                           Function: depositCard()                            ┃
+  ┃      Description: This method allows users to store their credit cards       ┃
+  ┃detail on Bitskin so they can use it to add fund to their Bitskin WalletStats ┃
+  ┃       Return: boolean which determines if the operation was successful       ┃
+  ┃                                                                              ┃
+  ╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯
+*/
 
     bool depositCard(std::string input);
 }; 
