@@ -37,13 +37,79 @@ class WalletWithdrawl
     }
 
 
+
+/*╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
+  ┃                                                                              ┃
+  ┃                         Function: withdrawlBitcoin()                         ┃
+  ┃      Param: input string which contains the command and optionally the       ┃
+  ┃                           argument for the command                           ┃
+  ┃    Description: This method allows users to withdraw Bitskin wallet fund     ┃
+  ┃                           to their Bitcoin Account                           ┃
+  ┃       Return: boolean which determines if the operation was successful       ┃
+  ┃                                                                              ┃
+  ╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯
+*/
+
     bool withdrawlBitcoin(std::string input);
+
+
+/*╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
+  ┃                                                                              ┃
+  ┃                        Function: withdrawlLitecoin()                         ┃
+  ┃      Param: input string which contains the command and optionally the       ┃
+  ┃                           argument for the command                           ┃
+  ┃    Description: This method allows users to withdraw Bitskin wallet fund     ┃
+  ┃                          to their Litecoin Account                           ┃
+  ┃      Return: boolean which determines if the operation was successful.       ┃
+  ┃                                                                              ┃
+  ┃                                                                              ┃
+  ╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯
+*/
 
     bool withdrawlLitecoin(std::string input);
 
+
+/*╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
+  ┃                                                                              ┃
+  ┃                        Function: withdrawlEthereum()                         ┃
+  ┃      Param: input string which contains the command and optionally the       ┃
+  ┃                           argument for the command                           ┃
+  ┃    Description: This method allows users to withdraw Bitskin wallet fund     ┃
+  ┃                          to their Ethereum Account                           ┃
+  ┃      Return: boolean which determines if the operation was successful.       ┃
+  ┃                                                                              ┃
+  ╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯
+*/
+
     bool withdrawlEthereum(std::string input);
 
+
+/*╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
+  ┃                                                                              ┃
+  ┃                         Function: withdrawlBinance()                         ┃
+  ┃      Param: input string which contains the command and optionally the       ┃
+  ┃                           argument for the command                           ┃
+  ┃    Description: This method allows users to withdraw Bitskin wallet fund     ┃
+  ┃                       to their Binance account.                              ┃
+  ┃      Return: boolean which determines if the operation was successful.       ┃
+  ┃                                                                              ┃
+  ╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯
+*/
+
     bool withdrawlBinance(std::string input);
+
+
+/*╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
+  ┃                                                                              ┃
+  ┃                          Function: withdrawlVisa()                           ┃
+  ┃      Param: input string which contains the command and optionally the       ┃
+  ┃                           argument for the command                           ┃
+  ┃    Description: This method allows users to withdraw Bitskin wallet fund     ┃
+  ┃                          to their Visa credit card.                          ┃
+  ┃      Return: boolean which determines if the operation was successful.       ┃
+  ┃                                                                              ┃
+  ╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯
+*/
 
     bool withdrawlVisa(std::string input);
 };
