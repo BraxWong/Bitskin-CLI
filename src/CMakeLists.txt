@@ -28,7 +28,6 @@ add_library(src
   Wallet/src/GiftCode.cxx
   Wallet/src/Card.cxx
   Wallet/src/WalletWithdrawl.cxx
-  EmailSender/src/EmailSender.cxx
 )
 include(FetchContent)
 FetchContent_Declare(cpr GIT_REPOSITORY https://github.com/libcpr/cpr.git
@@ -38,8 +37,4 @@ find_package(nlohmann_json 3.2.0 REQUIRED)
 target_link_libraries(src 
   PRIVATE cpr::cpr
   PRIVATE nlohmann_json::nlohmann_json
-  PRIVATE Poco::Foundation
-  PRIVATE Poco::Util
-  PRIVATE Poco::Net
-  PRIVATE Poco::NetSSL
 )
