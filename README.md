@@ -35,6 +35,8 @@ cd Bitskin-CLI
 
 4. [Catch2](https://github.com/catchorg/Catch2)
 
+5. OpenSSL
+
 <h2>Future Plans 📝</h2>
 
 1. Create an installer for the CLI tool

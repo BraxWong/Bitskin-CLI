@@ -1,7 +1,3 @@
-list(APPEND CMAKE_PREFIX_PATH "${CMAKE_CURRENT_SOURCE_DIR}/../submodules/poco/cmake-build")
-
-find_package(Poco REQUIRED COMPONENTS Foundation Util Net NetSSL)
-
 add_library(src 
   CLI/src/MainMenu.cxx 
   CLI/src/UserCredentials.cxx
@@ -33,7 +29,10 @@ include(FetchContent)
 FetchContent_Declare(cpr GIT_REPOSITORY https://github.com/libcpr/cpr.git
                          GIT_TAG 2553fc41450301cd09a9271c8d2c3e0cf3546b73) # The commit hash for 1.10.x. Replace with the latest from: https://github.com/libcpr/cpr/releases
 FetchContent_MakeAvailable(cpr)
-find_package(nlohmann_json 3.2.0 REQUIRED)
+
+FetchContent_Declare(json URL https://github.com/nlohmann/json/releases/download/v3.11.3/json.tar.xz)
+FetchContent_MakeAvailable(json)
+
 target_link_libraries(src 
   PRIVATE cpr::cpr
   PRIVATE nlohmann_json::nlohmann_json
