@@ -1,6 +1,7 @@
 #include "Errortests.cxx"
 #include "UserCredentialsTests.cxx"
 #include "ArgumentListenerTests.cxx"
+#include "ExecuteBashTests.cxx"
 
 /*╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
   ┃                                                                              ┃
