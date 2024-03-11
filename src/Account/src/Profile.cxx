@@ -96,7 +96,7 @@ UserCredentials *Profile::userLogin() {
   UserCredentials *user = new UserCredentials();
   std::string authToken;
   user->setAPIKey();
-  std::cout << "Please insert your Bitskins Auth Token:\n";
+  std::cout << "Please insert your Bitskins Auth Token (Optional):\n";
   std::getline(std::cin, authToken);
   user->setAuthToken(authToken);
   this->em = new ERRORMAP::errormap();
