@@ -1,19 +1,20 @@
 #include "../header/UserCredentials.h"
 #include <iostream>
 #include <stdio.h>
+bool USERCREDENTIALS_H::UserCredentials::setAPIKey(std::string APIKey)
+{
+  bool apiSet = false;
+  if(checkAPIKeyValidity(APIKey) == true)
+  {
+    this->APIKey = APIKey;
+    apiSet = true;
+  } 
+  return apiSet;
+}
 
-void USERCREDENTIALS_H::UserCredentials::setAPIKey() {
-  std::string APIKey;
-  while (true) {
-    std::cout << "Please insert your Bitskins Auth Token:\n";
-    std::getline(std::cin, APIKey);
-    if (APIKey.length() == 64) {
-      this->APIKey = APIKey;
-      return;
-    }
-    std::cout << "The API Key has to be 64 characters long. Please try "
-                 "again.\n";
-  }
+bool USERCREDENTIALS_H::UserCredentials::checkAPIKeyValidity(std::string APIKey)
+{
+  return APIKey.length() == VALID_API_KEY_LENGTH;
 }
 
 void USERCREDENTIALS_H::UserCredentials::setAuthToken(std::string AuthToken) {

@@ -92,13 +92,21 @@ cpr::Response Profile::blockAccount(std::string input) {
                   ╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯
 */
 
-UserCredentials *Profile::userLogin() {
-  UserCredentials *user = new UserCredentials();
+UserCredentials* Profile::userLogin()
+{
+  UserCredentials* user = new UserCredentials();
+  std::string apiKey;
   std::string authToken;
-  user->setAPIKey();
+  bool apiSet = false;
+  while(apiSet == false) {
+    std::cout << "Please insert your valid Bitskins API key:\n";
+    std::getline(std::cin, apiKey);
+    apiSet = user->setAPIKey(apiKey);
+  }  
   std::cout << "Please insert your Bitskins Auth Token (Optional):\n";
   std::getline(std::cin, authToken);
   user->setAuthToken(authToken);
+  this->user = user;
   this->em = new ERRORMAP::errormap();
   return user;
 }

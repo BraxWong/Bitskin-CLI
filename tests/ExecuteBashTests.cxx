@@ -11,7 +11,7 @@ using json = nlohmann::json;
 bool testCreateBashCMD(std::vector<std::string> expected, std::string url, std::string APIKey, std::vector<std::string> keys, std::vector<std::string> values, std::vector<std::string> dataType)
 {
   ExecuteBash executeBash;
-  std::vector<std::string> data = executeBash.createBashCMD(url, APIKey, keys, values, dataTypes);
+  std::vector<std::string> data = executeBash.createBashCMD(url, APIKey, keys, values, dataType);
   if(expected == data)
   {
     return true;

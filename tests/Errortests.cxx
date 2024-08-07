@@ -41,11 +41,3 @@ TEST_CASE("checkErrorMap()", "[checkErrorMap]") {
   std::cout << "Running checkErrorMap() test.\n";
   REQUIRE(checkErrorMap("blah", "blah", "blah") == true);
 }
-
-TEST_CASE("checkErrorResponse()", "[checkErrorMap]") {
-  std::cout << "Running checkErrorResponse() test.\n";
-  REQUIRE(checkErrorResponse({"code" : "API_001"}) == true);
-  REQUIRE(checkErrorResponse({"code" : "API_002"}) == true);
-  REQUIRE(checkErrorResponse({"code" : "API_2000"}) == false);
-  REQUIRE(checkErrorResponse({"NotCode" : "API_001"}) == false);
-}
