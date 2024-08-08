@@ -85,13 +85,6 @@ cpr::Response Profile::blockAccount(std::string input) {
   return block;
 }
 
-/*                ╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
-                  ┃                                            ┃
-                  ┃ TODO: Validate the input given by the user ┃
-                  ┃                                            ┃
-                  ╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯
-*/
-
 UserCredentials* Profile::userLogin()
 {
   UserCredentials* user = new UserCredentials();
@@ -103,6 +96,7 @@ UserCredentials* Profile::userLogin()
     std::getline(std::cin, apiKey);
     apiSet = user->setAPIKey(apiKey);
   }  
+  //TODO: the Bitskins Auth Token is not actually used anywhere in the codebase. Consider removing it.
   std::cout << "Please insert your Bitskins Auth Token (Optional):\n";
   std::getline(std::cin, authToken);
   user->setAuthToken(authToken);

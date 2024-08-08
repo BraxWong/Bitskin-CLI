@@ -181,6 +181,14 @@ void Listener::listenCommand()
     {
       this->walletWithdrawl->withdrawlVisa(input);
     }
+    else if(input.find("-createAPIKey") != std::string::npos)
+    {
+      this->apiKey->createAPIKey(input);
+    }
+    else if (input.find("-disableAPIKey") != std::string::npos)
+    {
+      this->apiKey->disableAPIKey(input);
+    }
     else 
     {
       std::cout << "Command not recognized. Please try again.\n";

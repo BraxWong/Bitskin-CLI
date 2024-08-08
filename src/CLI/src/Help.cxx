@@ -5,7 +5,7 @@
 bool HELP_H::Help::showHelp(bool fromHelpPage, std::string command) {
   if (fromHelpPage) {
     std::cout << "Help Page:\n";
-    std::cout << "Currently this program has 36 commands available.\n";
+    std::cout << "Currently this program has 40 commands available.\n";
     std::cout
         << "1: -help\n2: -quit\n3: -balance\n4: -session\n5: -tradelink\n6: "
            "-updateaccount\n7: -block\n8: -affiliate\n9: -claimmoney\n10: "
@@ -19,7 +19,8 @@ bool HELP_H::Help::showHelp(bool fromHelpPage, std::string command) {
            "-getBitcoinAddress\n29: -useGiftCode\n30: -getUsedGiftCodes\n31: "
            "-depositZen\n32: -getCards\n33: -depositCard\n34: "
            "-withdrawlBitcoin\n35: -withdrawlLitecoin\n36: "
-           "-withdrawlEthereum\n37: -withdrawlBinance\n38: -withdrawlVisa\n";
+           "-withdrawlEthereum\n37: -withdrawlBinance\n38: -withdrawlVisa\n39: -createAPIKey\n"
+           "40: -disableAPIKey\n";
     std::cout << "To obtain for information regarding one specific command, "
                  "type in the command you want with the argument -h\n";
     std::cout << "For example: -quit -h\n";
@@ -190,6 +191,16 @@ bool HELP_H::Help::showHelp(bool fromHelpPage, std::string command) {
           << "When -withdrawlVisa is entered, users will be required to enter "
              "their visa credit card id, amount they would like to withdraw, "
              "credit card security code, and two factor authenticator code.\n";
+    } else if (command == "-createAPIKey -h") {
+      std::cout 
+          << "When -createAPIKey is entered, it will first verify whether the user has "
+             "entered their authentication token upon login. If not, it will ask for the "
+             "authentication token again. Then it will provide the newly created API key "
+             "if the authentication token is valid. If no response was given, that means "  
+             "the authentication token the user provided is invalid.\n";
+    } else if (command == "-disableAPIKey -h") {
+      std::cout
+          << "When -disableAPIKey is entered, it will disable the user's BitSkins API Key.\n";
     } else if (command == "-q") {
       break;
     } else {

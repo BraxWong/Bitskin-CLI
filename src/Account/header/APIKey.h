@@ -40,7 +40,7 @@ class APIKey
 */
 
     cpr::Response disableAPIKey(std::string input);
-
+    cpr::Response createAPIKey(std::string input);
 };
 #endif
 

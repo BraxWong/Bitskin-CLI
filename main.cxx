@@ -16,6 +16,7 @@ int main() {
   Profile* profile = new Profile();
   profile->userLogin();
   Affiliate* affiliate = new Affiliate(profile);
+  APIKey* apiKey = new APIKey(profile);
   CurrencyRates* currencyRates = new CurrencyRates(profile);
   FeePlans* feePlans = new FeePlans(profile);
   PlatformStatus* platformStatus = new PlatformStatus(profile);
@@ -30,7 +31,7 @@ int main() {
   GiftCode* giftCode = new GiftCode(profile);
   Card* card = new Card(profile);
   WalletWithdrawl* walletWithdrawl = new WalletWithdrawl(profile);
-  Listener* listener = new Listener(profile, affiliate, currencyRates, feePlans, platformStatus, pricing, marketItems, buyItem, steamInventory, steamTrades, walletStats, walletReports, walletDeposit, giftCode, card, walletWithdrawl);
+  Listener* listener = new Listener(profile, affiliate, apiKey, currencyRates, feePlans, platformStatus, pricing, marketItems, buyItem, steamInventory, steamTrades, walletStats, walletReports, walletDeposit, giftCode, card, walletWithdrawl);
   listener->listenCommand();
   delete cli;
   delete profile;

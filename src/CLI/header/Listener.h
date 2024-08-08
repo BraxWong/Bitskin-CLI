@@ -2,6 +2,7 @@
 #define LISTENER_H
 #include "../../Account/header/Profile.h"
 #include "../../Account/header/Affiliate.h"
+#include "../../Account/header/APIKey.h"
 #include "../../Config/header/CurrencyRates.h"
 #include "../../Config/header/FeePlans.h"
 #include "../../Config/header/PlatformStatus.h"
@@ -25,6 +26,7 @@ class Listener
 public:
   Profile* profile;
   Affiliate* affiliate;
+  APIKey* apiKey;
   CurrencyRates* currencyRates;
   FeePlans* feePlans;
   PlatformStatus* platformStatus;
@@ -47,10 +49,11 @@ public:
   ╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯
 */
 
-    Listener(Profile* p, Affiliate* a, CurrencyRates* currencyRates, FeePlans* feePlans, PlatformStatus* platformStatus, Pricing* pricing, MarketItems* marketItems, BuyItem* buyItem, SteamInventory* steamInventory, SteamTrades* steamTrades, WalletStats* walletStats, WalletReports* walletReports, WalletDespoit* walletDespoit, GiftCode* giftCode, Card* card, WalletWithdrawl* walletWithdrawl)
+    Listener(Profile* p, Affiliate* a, APIKey* apiKey, CurrencyRates* currencyRates, FeePlans* feePlans, PlatformStatus* platformStatus, Pricing* pricing, MarketItems* marketItems, BuyItem* buyItem, SteamInventory* steamInventory, SteamTrades* steamTrades, WalletStats* walletStats, WalletReports* walletReports, WalletDespoit* walletDespoit, GiftCode* giftCode, Card* card, WalletWithdrawl* walletWithdrawl)
   {
     this->profile = p;
     this->affiliate = a;
+    this->apiKey = apiKey;
     this->currencyRates = currencyRates;
     this->feePlans = feePlans;
     this->platformStatus = platformStatus;
@@ -70,6 +73,7 @@ public:
     ~Listener()
     {
       delete this->affiliate;
+      delete this->apiKey;
       delete this->marketItems;
       delete this->pricing;
       delete this->platformStatus;
