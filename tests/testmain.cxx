@@ -2,6 +2,7 @@
 #include "UserCredentialsTests.cxx"
 #include "ArgumentListenerTests.cxx"
 #include "ExecuteBashTests.cxx"
+#include "MarketEnumTests.cxx"
 
 /*╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
   ┃                                                                              ┃
