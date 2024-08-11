@@ -3,6 +3,7 @@
 #include "ArgumentListenerTests.cxx"
 #include "ExecuteBashTests.cxx"
 #include "MarketEnumTests.cxx"
+#include "PlatformStatusTests.cxx"
 
 /*╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
   ┃                                                                              ┃
