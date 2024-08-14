@@ -101,5 +101,15 @@ public:
 */
 
   UserCredentials* userLogin();
+
+
+//          ╭---------------------------------------------------------╮
+//          |                                                         |
+//          |  Function: updateUserAPIKey() Description: This method  |
+//          |         allows users to updated their api keys.         |
+//          |                                                         |
+//          ╰---------------------------------------------------------╯
+  //
+  bool updateUserAPIKey();
 };
 #endif // !PROFILE_H

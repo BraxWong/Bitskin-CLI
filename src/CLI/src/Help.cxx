@@ -5,7 +5,7 @@
 bool HELP_H::Help::showHelp(bool fromHelpPage, std::string command) {
   if (fromHelpPage) {
     std::cout << "Help Page:\n";
-    std::cout << "Currently this program has 40 commands available.\n";
+    std::cout << "Currently this program has 41 commands available.\n";
     std::cout
         << "1: -help\n2: -quit\n3: -balance\n4: -session\n5: -tradelink\n6: "
            "-updateaccount\n7: -block\n8: -affiliate\n9: -claimmoney\n10: "
@@ -20,7 +20,7 @@ bool HELP_H::Help::showHelp(bool fromHelpPage, std::string command) {
            "-depositZen\n32: -getCards\n33: -depositCard\n34: "
            "-withdrawlBitcoin\n35: -withdrawlLitecoin\n36: "
            "-withdrawlEthereum\n37: -withdrawlBinance\n38: -withdrawlVisa\n39: -createAPIKey\n"
-           "40: -disableAPIKey\n";
+           "40: -disableAPIKey\n41: -updateAPIKey\n";
     std::cout << "To obtain for information regarding one specific command, "
                  "type in the command you want with the argument -h\n";
     std::cout << "For example: -quit -h\n";
@@ -201,6 +201,9 @@ bool HELP_H::Help::showHelp(bool fromHelpPage, std::string command) {
     } else if (command == "-disableAPIKey -h") {
       std::cout
           << "When -disableAPIKey is entered, it will disable the user's BitSkins API Key.\n";
+    } else if (command == "-updateAPIKey -h"){
+      std::cout 
+          << "When -updateAPIKey is entered, it will ask the user for their new BitSkins API Key.\n";
     } else if (command == "-q") {
       break;
     } else {

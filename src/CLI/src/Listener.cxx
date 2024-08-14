@@ -189,6 +189,14 @@ void Listener::listenCommand()
     {
       this->apiKey->disableAPIKey(input);
     }
+    else if(input.find("-updateAPIKey") != std::string::npos)
+    {
+      while(true){
+        if(this->profile->updateUserAPIKey() == true){
+          break;
+        }
+      }
+    }
     else 
     {
       std::cout << "Command not recognized. Please try again.\n";
