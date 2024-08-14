@@ -90,11 +90,12 @@ UserCredentials* Profile::userLogin()
   UserCredentials* user = new UserCredentials();
   std::string apiKey;
   std::string authToken;
-  bool apiSet = false;
-  while(apiSet == false) {
+  while(user->readAPIKeyFromFile() == "") {
     std::cout << "Please insert your valid Bitskins API key:\n";
     std::getline(std::cin, apiKey);
-    apiSet = user->setAPIKey(apiKey);
+    if(user->writeAPIKeyToFile(apiKey)){
+      user->setAPIKey(apiKey);
+    }
   }  
   //TODO: the Bitskins Auth Token is not actually used anywhere in the codebase. Consider removing it.
   std::cout << "Please insert your Bitskins Auth Token (Optional):\n";
