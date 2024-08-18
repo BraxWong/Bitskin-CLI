@@ -98,7 +98,8 @@ UserCredentials* Profile::userLogin()
     }
   }  
   user->setAPIKey(user->readAPIKeyFromFile());
-  std::cout << "Please insert your Bitskins Auth Token (Optional):\n";
+  std::cout << "Your current API key is: " + user->readAPIKeyFromFile() << "\n";
+  std::cout << "Please insert your Bitskins Auth Token (Press Enter to skip):\n";
   std::getline(std::cin, authToken);
   user->setAuthToken(authToken);
   this->user = user;

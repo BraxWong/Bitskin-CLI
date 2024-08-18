@@ -30,7 +30,6 @@ bool UserCredentials::writeAPIKeyToFile(std::string APIKey) {
   bool wroteToFile = true;
   if(!this->checkAPIKeyValidity(APIKey)){
     wroteToFile = false;
-    std::cout << "The key is invalid?\n";
   }
   else {
     std::ofstream APIKeyFile("../Resources/APIKey.txt");

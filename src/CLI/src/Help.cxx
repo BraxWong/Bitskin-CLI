@@ -1,26 +1,26 @@
 #include "../header/Help.h"
 #include <iostream>
 #include <stdio.h>
+#include <iomanip>
 
 bool HELP_H::Help::showHelp(bool fromHelpPage, std::string command) {
   if (fromHelpPage) {
     std::cout << "Help Page:\n";
     std::cout << "Currently this program has 41 commands available.\n";
-    std::cout
-        << "1: -help\n2: -quit\n3: -balance\n4: -session\n5: -tradelink\n6: "
-           "-updateaccount\n7: -block\n8: -affiliate\n9: -claimmoney\n10: "
-           "-historicrewards\n11: -setcode\n12: -currencyrates\n13: "
-           "-platformstatus\n14: -sales\n15: -pricingsummary\n16: "
-           "-steaminventory\n17: -steamtrades\n18: -activetrades\n19: "
-           "-walletstats\n20: -kyclimits\n21: -walletreports\n22: "
-           "-generatewalletreports\n23: -downloadwalletreports\n24: "
-           "-depositbianace\n25: -getCryptoAddress\n26: "
-           "-getLitecoinAddress\n27: -getEtheriumAddress\n28: "
-           "-getBitcoinAddress\n29: -useGiftCode\n30: -getUsedGiftCodes\n31: "
-           "-depositZen\n32: -getCards\n33: -depositCard\n34: "
-           "-withdrawlBitcoin\n35: -withdrawlLitecoin\n36: "
-           "-withdrawlEthereum\n37: -withdrawlBinance\n38: -withdrawlVisa\n39: -createAPIKey\n"
-           "40: -disableAPIKey\n41: -updateAPIKey\n";
+    
+    const int numCols = 3;
+    const int colWidth = 35;
+
+    std::cout << "-----------------------------------------------------------------------------------------------------------------" << std::endl;
+
+    for (size_t i = 0; i < commands.size(); i += numCols) {
+        for (size_t j = i; j < i + numCols && j < commands.size(); j++) {
+            std::cout << std::left << std::setw(colWidth) << std::to_string(j + 1) + ": -" + commands[j] << " | ";
+        }
+        std::cout << std::endl;
+    }
+
+    std::cout << "-----------------------------------------------------------------------------------------------------------------" << std::endl;
     std::cout << "To obtain for information regarding one specific command, "
                  "type in the command you want with the argument -h\n";
     std::cout << "For example: -quit -h\n";
