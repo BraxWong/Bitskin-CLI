@@ -39,6 +39,8 @@ class SteamTrades
 
     bool getActiveSteamTrades(std::string input);
 
+    bool verifyAppID(std::string input);
+
     cpr::Response getSteamTradeHash(std::string input);
 };
 

@@ -9,8 +9,12 @@ bool SteamTrades::getSteamTrades(std::string input)
     this->help->showHelp(false, input);
   }
   std::string appID, limit, offset;
-  std::cout << "Please provide the appID:\ncs2: 730\ndota2: 570\ntf2: 440\nrust: 252490\n";
-  std::getline(std::cin, appID);
+  bool validAppId = false;
+  while(!validAppId){
+    std::cout << "Please provide the appID:\ncs2: 730\ndota2: 570\ntf2: 440\nrust: 252490\n";
+    std::getline(std::cin, appID);
+    validAppId = verifyAppID(appID);
+  }
   std::cout << "Please provide the limit:\n";
   std::getline(std::cin, limit);
   std::cout << "Please provide the offset:\n";
@@ -30,8 +34,12 @@ bool SteamTrades::getActiveSteamTrades(std::string input)
     this->help->showHelp(false, input);
   }
   std::string appID, limit, offset;
-  std::cout << "Please provide the appID:\ncs2: 730\ndota2: 570\ntf2: 440\nrust: 252490\n";
-  std::getline(std::cin, appID);
+  bool validAppId = false;
+  while(!validAppId){
+    std::cout << "Please provide the appID:\ncs2: 730\ndota2: 570\ntf2: 440\nrust: 252490\n";
+    std::getline(std::cin, appID);
+    validAppId = verifyAppID(appID);
+  }
   std::cout << "Please provide the limit:\n";
   std::getline(std::cin, limit);
   std::cout << "Please provide the offset:\n";
@@ -57,5 +65,14 @@ cpr::Response SteamTrades::getSteamTradeHash(std::string input)
   this->responseDisplayer->displayHttpResponse(this->em, session.text, input); 
 
   return session;
+}
+
+bool SteamTrades::verifyAppID(std::string input)
+{
+  bool validAppID = false;
+  if(input == "730" || input == "570" || input == "440" || input == "252490"){
+    validAppID = true;
+  }
+  return validAppID;
 }
 
